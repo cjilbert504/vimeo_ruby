@@ -18,9 +18,9 @@ module VimeoRuby
       end
 
       def get(uri)
-        http, request = build_https_get_request(uri)
+        https, request = build_https_get_request(uri)
         request.basic_auth(client_identifier, client_secret)
-        http.request(request)
+        https.request(request)
       end
 
       def tutorial_endpoint_request
