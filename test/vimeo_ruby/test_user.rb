@@ -12,10 +12,10 @@ class TestUser < Minitest::Test
   end
 
   def test_user_has_an_id_attribute
-    assert_equal 191447207, VimeoRuby::User.new(191447207).id
+    assert_equal 202558318, VimeoRuby::User.new(202558318).id
   end
 
   def test_user_find
-    assert_equal "200", VimeoRuby::User.find(191447207).code
+    assert_equal "200", VimeoRuby::User.find(202558318).code
   end
 end
