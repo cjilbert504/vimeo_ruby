@@ -18,7 +18,7 @@ module VimeoRuby
       end
 
       def get(uri)
-        http, request = build_https_request(uri)
+        http, request = build_https_get_request(uri)
         request.basic_auth(client_identifier, client_secret)
         http.request(request)
       end
@@ -29,15 +29,20 @@ module VimeoRuby
 
       private
 
-      def build_https_request(uri)
+      def build_https_get_request(uri)
         uri = URI.parse(uri)
-        http = Net::HTTP.new(uri.host, uri.port)
+        [build_ssl_enabled_http_object(uri.host, uri.port), build_http_get_request_object(uri.path)]
+      end
+
+      def build_ssl_enabled_http_object(host, port)
+        http = Net::HTTP.new(host, port)
         http.use_ssl = true
-        request = Net::HTTP::Get.new(uri.path)
-        [http, request]
+        http
+      end
+
+      def build_http_get_request_object(path)
+        Net::HTTP::Get.new(path)
       end
     end
   end
 end
-
-
