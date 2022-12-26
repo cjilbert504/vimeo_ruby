@@ -7,7 +7,7 @@ module VimeoRuby
 
       def tutorial_endpoint_request
         uri = URI("#{base_uri}/tutorial")
-        Net::HTTP.get_response(uri, { "Authorization": "bearer #{ENV["VIMEO_ACCESS_TOKEN"]}" })
+        Net::HTTP.get_response(uri, {Authorization: "bearer #{ENV["VIMEO_ACCESS_TOKEN"]}"})
       end
     end
   end
