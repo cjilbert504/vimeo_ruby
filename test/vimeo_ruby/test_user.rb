@@ -3,6 +3,14 @@
 require "test_helper"
 
 class TestUser < Minitest::Test
+  def setup
+    VCR.insert_cassette(name)
+  end
+
+  def teardown
+    VCR.eject_cassette
+  end
+
   def test_user_has_an_id_attribute
     assert_equal 191447207, VimeoRuby::User.new(191447207).id
   end
