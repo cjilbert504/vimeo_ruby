@@ -10,11 +10,12 @@ module VimeoRuby
     attr_reader :base_uri
 
     def initialize
-      @base_uri = URI("https://api.vimeo.com/tutorial")
+      @base_uri = "https://api.vimeo.com"
     end
 
     def tutorial_request
-      Net::HTTP.get_response(base_uri, { "Authorization": "bearer #{ENV["VIMEO_ACCESS_TOKEN"]}" })
+      uri = URI("#{base_uri}/tutorial")
+      Net::HTTP.get_response(uri, { "Authorization": "bearer #{ENV["VIMEO_ACCESS_TOKEN"]}" })
     end
   end 
 end
