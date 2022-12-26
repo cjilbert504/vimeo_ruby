@@ -11,11 +11,9 @@ class TestUser < Minitest::Test
     VCR.eject_cassette
   end
 
-  def test_user_has_an_id_attribute
-    assert_equal 202558318, VimeoRuby::User.new(202558318).id
-  end
-
-  def test_user_find
-    assert_equal "200", VimeoRuby::User.find(202558318).code
+  def test_find_instantiates_a_user_after_successful_request
+    user = VimeoRuby::User.find(202558318)
+    assert_equal 202558318, user.id
+    assert_equal "Collin Jilbert", user.name
   end
 end
