@@ -8,7 +8,7 @@ class TestVimeoRuby < Minitest::Test
   end
 
   def test_can_succesfully_hit_the_tutorial_endpoint
-    vimeo_response = VimeoRuby::Vimeo.new.tutorial_request
+    vimeo_response = VimeoRuby::Base.tutorial_endpoint_request
     assert_equal "200",  vimeo_response.code
   end
 end
