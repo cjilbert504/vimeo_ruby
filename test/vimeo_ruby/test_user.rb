@@ -41,4 +41,16 @@ class TestUser < Minitest::Test
   def test_user_can_indicate_if_they_can_work_remotely
     assert_equal false, @user.can_work_remotely?
   end
+
+  def test_user_has_additional_info_accessible
+    assert_kind_of Hash, @user.additional_info
+
+    %w[capabilities gender short_bio created_time pictures websites metadata location_details skills resource_key account].each do |attr|
+      assert_includes @user.additional_info, attr
+    end
+
+    %w[uri name link location bio available_for_hire can_work_remotely].each do |attr|
+      refute_includes @user.additional_info, attr
+    end
+  end
 end
