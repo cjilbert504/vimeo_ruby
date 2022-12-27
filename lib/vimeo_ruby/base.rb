@@ -1,3 +1,4 @@
+require "json"
 require "net/http"
 
 module VimeoRuby
@@ -22,11 +23,8 @@ module VimeoRuby
       def get(uri)
         https, request = build_https_get_request(uri)
         request.basic_auth(client_identifier, client_secret)
-        https.request(request)
-      end
-
-      def tutorial_endpoint_request
-        get("#{base_uri}/tutorial")
+        response = https.request(request)
+        JSON.parse(response.body)
       end
 
       private
