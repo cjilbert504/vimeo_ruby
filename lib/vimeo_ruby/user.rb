@@ -3,7 +3,7 @@ module VimeoRuby
     attr_reader :vimeo_id, :name, :profile_url, :location, :bio
 
     def initialize(attrs: {})
-      @vimeo_id = extract_id_from_vimeo_user_uri(attrs.delete("uri"))
+      @vimeo_id = extract_id_from_vimeo_user_uri(attrs["uri"])
       @name = attrs["name"]
       @profile_url = attrs["link"]
       @location = attrs["location"]
