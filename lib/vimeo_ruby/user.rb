@@ -11,8 +11,7 @@ module VimeoRuby
     end
 
     def self.find(id)
-      response = get("#{base_uri}/users/#{id}")
-      user_info = JSON.parse(response.body)
+      user_info = get("#{base_uri}/users/#{id}")
       new(attrs: user_info)
     end
 
