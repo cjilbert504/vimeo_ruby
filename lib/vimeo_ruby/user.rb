@@ -13,7 +13,7 @@ module VimeoRuby
       @additional_info = attrs
     end
 
-    def self.find(id)
+    def self.get_user(id)
       user_info = get("#{base_uri}/users/#{id}")
       new(attrs: user_info)
     end

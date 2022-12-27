@@ -5,7 +5,7 @@ require "test_helper"
 class TestUser < Minitest::Test
   def setup
     VCR.use_cassette("user_found_successfully") do
-      @user = VimeoRuby::User.find(202558318)
+      @user = VimeoRuby::User.get_user(202558318)
     end
   end
 
