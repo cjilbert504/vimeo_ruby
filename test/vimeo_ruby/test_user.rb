@@ -13,8 +13,8 @@ class TestUser < Minitest::Test
     VCR.eject_cassette
   end
 
-  def test_user_has_an_id
-    assert_equal 202558318, @user.id
+  def test_user_has_a_vimeo_id
+    assert_equal 202558318, @user.vimeo_id
   end
 
   def test_user_has_a_name
@@ -32,5 +32,13 @@ class TestUser < Minitest::Test
   def test_user_has_a_bio
     bio_str = "Writing stories for computers to read."
     assert_equal bio_str, @user.bio
+  end
+
+  def test_user_can_indicate_if_they_are_available_for_hire
+    assert_equal false, @user.available_for_hire?
+  end
+
+  def test_user_can_indicate_if_they_can_work_remotely
+    assert_equal false, @user.can_work_remotely?
   end
 end
