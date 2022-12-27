@@ -35,10 +35,12 @@ class TestUser < Minitest::Test
   end
 
   def test_user_can_indicate_if_they_are_available_for_hire
+    assert_equal false, @user.available_for_hire
     assert_equal false, @user.available_for_hire?
   end
 
   def test_user_can_indicate_if_they_can_work_remotely
+    assert_equal false, @user.can_work_remotely
     assert_equal false, @user.can_work_remotely?
   end
 
