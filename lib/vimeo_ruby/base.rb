@@ -1,3 +1,5 @@
+require "net/http"
+
 module VimeoRuby
   class Base
     class << self

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "net/http"
 require_relative "vimeo_ruby/base"
 require_relative "vimeo_ruby/user"
 require_relative "vimeo_ruby/version"
