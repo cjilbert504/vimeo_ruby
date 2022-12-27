@@ -1,12 +1,13 @@
 module VimeoRuby
   class User < VimeoRuby::Base
-    attr_reader :id, :name, :profile_url, :location
+    attr_reader :id, :name, :profile_url, :location, :bio
 
     def initialize(attrs: {})
       @id = extract_id_from_vimeo_user_uri(attrs.delete("uri"))
       @name = attrs["name"]
       @profile_url = attrs["link"]
       @location = attrs["location"]
+      @bio = attrs["bio"]
     end
 
     def self.find(id)

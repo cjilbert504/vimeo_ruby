@@ -28,4 +28,9 @@ class TestUser < Minitest::Test
   def test_user_has_a_location
     assert_equal "Covington, LA, USA", @user.location
   end
+
+  def test_user_has_a_bio
+    bio_str = "Writing stories for computers to read."
+    assert_equal bio_str, @user.bio
+  end
 end
