@@ -5,7 +5,7 @@ module VimeoRuby
 
       def initialize(videos_array)
         @videos = videos_array.map do |video_data|
-          VimeoRuby::Video.new(video_data)
+          VimeoRuby::Video.new(attrs: video_data)
         end
       end
     end
