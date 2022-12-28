@@ -28,7 +28,7 @@ VIMEO_CLIENT_SECRET=<client_secrete_value
 
 Now you should be ready to continue onward and experiment with this first iteration of the gem interface.
 
-Currently there are two main classes the you should interface to the Vimeo API with which are `VimeoRuby::User` and `VimeoRuby::Video`.
+Currently there are two main classes the you should use to interface with the Vimeo API through which are `VimeoRuby::User` and `VimeoRuby::Video`.
 
 For example, should you want to find a particular Vimeo user by their `vimeo_id`, you can make the following call:
 ```ruby
