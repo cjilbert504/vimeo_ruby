@@ -51,12 +51,14 @@ class TestUser < Minitest::Test
   def test_user_has_additional_info_accessible
     assert_kind_of Hash, @user.additional_info
 
-    %w[capabilities gender short_bio created_time pictures websites metadata location_details skills resource_key account].each do |attr|
-      assert_includes @user.additional_info, attr
+    currently_parsed_and_assigned_attributes = %w[uri name link location bio available_for_hire can_work_remotely]
+    currently_parsed_and_assigned_attributes.each do |attr|
+      refute_includes @user.additional_info, attr
     end
 
-    %w[uri name link location bio available_for_hire can_work_remotely].each do |attr|
-      refute_includes @user.additional_info, attr
+    remaining_attributes = %w[capabilities gender short_bio created_time pictures websites metadata location_details skills resource_key account]
+    remaining_attributes.each do |attr|
+      assert_includes @user.additional_info, attr
     end
   end
 
