@@ -18,8 +18,12 @@ module VimeoRuby
       new(attrs: user_info)
     end
 
-    def self.get_uploaded_videos(user_id, **query_params)
-      uploaded_videos_response = get("#{base_uri}/users/#{user_id}/videos", query_params: query_params)
+    def base_uri
+      self.class.base_uri
+    end
+
+    def uploaded_videos(query_params: {})
+      uploaded_videos_response = self.class.get("#{base_uri}/users/#{vimeo_id}/videos", query_params: query_params)
       uploaded_videos = uploaded_videos_response["data"]
       VimeoRuby::User::UploadedVideoCollection.new(uploaded_videos)
     end

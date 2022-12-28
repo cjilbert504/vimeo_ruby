@@ -5,8 +5,10 @@ require "test_helper"
 class TestVideoCollection < Minitest::Test
   def setup
     VCR.use_cassette("test_get_uploaded_videos") do
-      vimeo_user_id = 4111735
-      @video_collection = VimeoRuby::User.get_uploaded_videos(vimeo_user_id)
+      VCR.use_cassette("user_found_successfully") do
+        @user = VimeoRuby::User.get_user(4111735)
+      end
+      @video_collection = @user.uploaded_videos
     end
   end
 
