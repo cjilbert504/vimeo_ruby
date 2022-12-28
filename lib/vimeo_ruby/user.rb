@@ -1,5 +1,3 @@
-require "vimeo_ruby/user/uploaded_video_collection"
-
 module VimeoRuby
   class User < VimeoRuby::Base
     attr_reader :vimeo_id, :name, :profile_url, :location, :bio, :available_for_hire, :can_work_remotely, :additional_info
