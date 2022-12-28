@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.vimeo.com/videos/697485076
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.vimeo.com
+      Authorization:
+      - Basic ZDFhMzgwYjUwYzBlMDM3NGFlYzQyYzYwNTU2YzI3ODZlZTEzZWVmZjpkanBCaFV1RUNOYldKNzJOVXZXTVAxQlAyM2dyeGxNWEhIcWhFcUd5ekJ1VTdlQmJXaXg0ald1MURhcS9DZnJMSkI3UlY4TVdzRFc3NXVBUnVnRFNnL29QWnR0dWs1MGlQK1ZXZWtMb3NDQUtzTW5DNVhRR3BPM1NNZXJtbW1qOQ==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 28 Dec 2022 06:00:02 GMT
+      Content-Type:
+      - application/vnd.vimeo.video+json
+      Content-Length:
+      - '10688'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '48'
+      X-Ratelimit-Reset:
+      - '2022-12-28T06:01:01+00:00'
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Request-Hash:
+      - 4c468df9
+      X-Bapp-Server:
+      - api-666d9c7c7d-4np96
+      X-Backend-Server:
+      - api-k8s
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Served-By:
+      - cache-iad-kcgs7200120-IAD, cache-fty21363-FTY
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1672207202.710480,VS0,VE331
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=CmLLsAl8MYTKymWAfLIP6rwlWOUwuPzAq6P8z4LUtSk-1672207202-0-AYXmaJiqV2gBAGOcyyD8WVUBC5rRo1YV5hcL4pGW0reyXx1TDYLCLFt5D9Tf3JSiA51WN2U8boFgkHVLcq1M7GE=;
+        path=/; expires=Wed, 28-Dec-22 06:30:02 GMT; domain=.vimeo.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 780812c2acc4b099-ATL
+    body:
+      encoding: UTF-8
+      string: '{"uri":"/videos/697485076","name":"Ask Zillow Anything - Pilot","description":"Come on, go ahead, ask Zillow anything!","type":"video","link":"https://vimeo.com/697485076","player_embed_url":"https://player.vimeo.com/video/697485076?h=545673a8c6","duration":1122,"width":1920,"language":null,"height":1080,"embed":{"html":"<iframe
+        src=\"https://player.vimeo.com/video/697485076?h=545673a8c6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=260485\"
+        width=\"1920\" height=\"1080\" frameborder=\"0\" allow=\"autoplay; fullscreen;
+        picture-in-picture\" allowfullscreen title=\"Ask Zillow Anything - Pilot\"></iframe>","badges":{"hdr":false,"live":{"streaming":false,"archived":false},"staff_pick":{"normal":false,"best_of_the_month":false,"best_of_the_year":false,"premiere":false},"vod":false,"weekend_challenge":false}},"created_time":"2022-04-08T17:57:53+00:00","modified_time":"2022-11-18T18:55:45+00:00","release_time":"2022-04-08T17:57:53+00:00","content_rating":["unrated"],"content_rating_class":"unrated","rating_mod_locked":false,"license":null,"privacy":{"view":"anybody","embed":"public","download":false,"add":true,"comments":"anybody"},"pictures":{"uri":"/videos/697485076/pictures/1410560106","active":true,"type":"custom","base_link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d","sizes":[{"width":100,"height":75,"link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_100x75?r=pad","link_with_play_button":"https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_100x75&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"},{"width":200,"height":150,"link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_200x150?r=pad","link_with_play_button":"https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_200x150&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"},{"width":295,"height":166,"link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_295x166?r=pad","link_with_play_button":"https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_295x166&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"},{"width":640,"height":360,"link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_640x360?r=pad","link_with_play_button":"https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_640x360&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"},{"width":960,"height":540,"link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_960x540?r=pad","link_with_play_button":"https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_960x540&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"},{"width":1280,"height":720,"link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_1280x720?r=pad","link_with_play_button":"https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_1280x720&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"},{"width":1920,"height":1080,"link":"https://i.vimeocdn.com/video/1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_1920x1080?r=pad","link_with_play_button":"https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1410560106-1bcc09e92011c2a2600d5a4d85b1b7d39c4488ae47fd1adb925011c1e5aee6e8-d_1920x1080&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"}],"resource_key":"93ee600e0ad96a7a09f405fdedd823c678c685e8","default_picture":false},"tags":[],"stats":{"plays":null},"categories":[],"uploader":{"pictures":{"uri":"/users/4111735/pictures/17377071","active":true,"type":"custom","base_link":"https://i.vimeocdn.com/portrait/17377071","sizes":[{"width":30,"height":30,"link":"https://i.vimeocdn.com/portrait/17377071_30x30"},{"width":72,"height":72,"link":"https://i.vimeocdn.com/portrait/17377071_72x72"},{"width":75,"height":75,"link":"https://i.vimeocdn.com/portrait/17377071_75x75"},{"width":100,"height":100,"link":"https://i.vimeocdn.com/portrait/17377071_100x100"},{"width":144,"height":144,"link":"https://i.vimeocdn.com/portrait/17377071_144x144"},{"width":216,"height":216,"link":"https://i.vimeocdn.com/portrait/17377071_216x216"},{"width":288,"height":288,"link":"https://i.vimeocdn.com/portrait/17377071_288x288"},{"width":300,"height":300,"link":"https://i.vimeocdn.com/portrait/17377071_300x300"},{"width":360,"height":360,"link":"https://i.vimeocdn.com/portrait/17377071_360x360"}],"resource_key":"18ab377b86219eb062ffd13c26fd7d7b16bed1eb","default_picture":false}},"metadata":{"connections":{"comments":{"uri":"/videos/697485076/comments","options":["GET"],"total":0},"credits":{"uri":"/videos/697485076/credits","options":["GET","POST"],"total":0},"likes":{"uri":"/videos/697485076/likes","options":["GET"],"total":0},"pictures":{"uri":"/videos/697485076/pictures","options":["GET","POST"],"total":1},"texttracks":{"uri":"/videos/697485076/texttracks","options":["GET","POST"],"total":0},"related":null,"recommendations":{"uri":"/videos/697485076/recommendations","options":["GET"]}},"interactions":{"report":{"uri":"/videos/697485076/report","options":["POST"],"reason":["pornographic","harassment","ripoff","incorrect
+        rating","spam","causes harm","csam"]}},"is_vimeo_create":false,"is_screen_record":false},"user":{"uri":"/users/4111735","name":"Fractal
+        Film Co","link":"https://vimeo.com/fractalfilmco","capabilities":{"hasLiveSubscription":false,"hasEnterpriseLihp":false,"hasSvvTimecodedComments":false,"hasSimplifiedEnterpriseAccount":false},"location":"Truckee,
+        CA","gender":"o","bio":"FRACTAL Film Co is a full service film production
+        company located in mountains of Truckee, CA that specializes in crafting powerful
+        commercial, documentary and branded content.\n\nUtilizing cutting edge industry
+        cinema tools like the RED Dragon 6K camera, Movi gimbal stabilizers, drones
+        and cinema lenses, Fractal strives to tell stories that are not only emotionallycaptivating
+        but also visually stunning and uniquely stylized.\n\nOur core team consists
+        of Directors, Producers, Cinematographers and Editors with deep roots in the
+        industry. We understand the complex process of crafting cinematic stories
+        from pre-production through final delivery, and approach every project with
+        fresh eyes ready to break the rules. Everyone at Fractal is driven by a perfectionism
+        to create enduring images and tell inspiring stories.","short_bio":"FRACTAL
+        Film Co is a full service film production company located in mountains of
+        Truckee, CA that specializes in crafting powerful commercial, documentary
+        and","created_time":"2010-06-23T03:39:27+00:00","pictures":{"uri":"/users/4111735/pictures/17377071","active":true,"type":"custom","base_link":"https://i.vimeocdn.com/portrait/17377071","sizes":[{"width":30,"height":30,"link":"https://i.vimeocdn.com/portrait/17377071_30x30"},{"width":72,"height":72,"link":"https://i.vimeocdn.com/portrait/17377071_72x72"},{"width":75,"height":75,"link":"https://i.vimeocdn.com/portrait/17377071_75x75"},{"width":100,"height":100,"link":"https://i.vimeocdn.com/portrait/17377071_100x100"},{"width":144,"height":144,"link":"https://i.vimeocdn.com/portrait/17377071_144x144"},{"width":216,"height":216,"link":"https://i.vimeocdn.com/portrait/17377071_216x216"},{"width":288,"height":288,"link":"https://i.vimeocdn.com/portrait/17377071_288x288"},{"width":300,"height":300,"link":"https://i.vimeocdn.com/portrait/17377071_300x300"},{"width":360,"height":360,"link":"https://i.vimeocdn.com/portrait/17377071_360x360"}],"resource_key":"18ab377b86219eb062ffd13c26fd7d7b16bed1eb","default_picture":false},"websites":[{"uri":"/users/4111735/links/4831450","name":"w","link":"http://www.fractalfilmco.com","type":"link","description":null},{"uri":"/users/4111735/links/4831451","name":"Blog","link":"http://blog.westonwalker.com/","type":"link","description":null}],"metadata":{"connections":{"albums":{"uri":"/users/4111735/albums","options":["GET"],"total":3},"appearances":{"uri":"/users/4111735/appearances","options":["GET"],"total":19},"channels":{"uri":"/users/4111735/channels","options":["GET"],"total":2},"feed":{"uri":"/users/4111735/feed","options":["GET"]},"followers":{"uri":"/users/4111735/followers","options":["GET"],"total":166},"following":{"uri":"/users/4111735/following","options":["GET"],"total":73},"groups":{"uri":"/users/4111735/groups","options":["GET"],"total":0},"likes":{"uri":"/users/4111735/likes","options":["GET"],"total":17},"membership":{"uri":"/users/4111735/membership/","options":["PATCH"]},"moderated_channels":{"uri":"/users/4111735/channels?filter=moderated","options":["GET"],"total":0},"portfolios":{"uri":"/users/4111735/portfolios","options":["GET"],"total":0},"videos":{"uri":"/users/4111735/videos","options":["GET"],"total":28},"shared":{"uri":"/users/4111735/shared/videos","options":["GET"],"total":0},"pictures":{"uri":"/users/4111735/pictures","options":["GET","POST"],"total":1},"folders_root":{"uri":"/users/4111735/folders/root","options":["GET"]},"teams":{"uri":"/users/4111735/teams","options":["GET"],"total":1}}},"location_details":{"formatted_address":"Truckee,
+        CA","latitude":null,"longitude":null,"city":null,"state":null,"neighborhood":null,"sub_locality":null,"state_iso_code":null,"country":null,"country_iso_code":null},"skills":[{"uri":"/marketplace/skills/59","name":"Filmmaker"},{"uri":"/marketplace/skills/17","name":"Director"},{"uri":"/marketplace/skills/57","name":"Editor"},{"uri":"/marketplace/skills/34","name":"Producer"}],"available_for_hire":false,"can_work_remotely":false,"resource_key":"9a3cda5b1994ba038bda67c7465c304724e7078d","account":"plus"},"play":{"status":"playable"},"app":{"name":"Parallel
+        Uploader","uri":"/apps/87099"},"status":"available","resource_key":"b57117942eb34be7b82e76f5a0bdf738ecc13030","upload":null,"transcode":null,"is_playable":true,"has_audio":true}'
+  recorded_at: Wed, 28 Dec 2022 06:00:02 GMT
+recorded_with: VCR 6.1.0
