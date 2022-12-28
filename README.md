@@ -30,13 +30,21 @@ Now you should be ready to continue onward and experiment with this first iterat
 
 Currently there are two main classes the you should use to interface with the Vimeo API through which are `VimeoRuby::User` and `VimeoRuby::Video`.
 
+### Working with the VimeoRuby::User class
+
 For example, should you want to find a particular Vimeo user by their `vimeo_id`, you can make the following call:
 ```ruby
 vimeo_user = VimeoRuby::User.get_user(<vimeo_id>)
 #=> #<VimeoRuby::User:0x000000011230df50
 ```
 
-With this `VimeoRuby::User` instance that was returned from the successful call we can see what methods are available by running the preceeding and the following code in an irb session with the gem loaded:
+Alternatively, you can call the same `get_user` method on the `VimeoRuby` module itself if you wish for something a bit shorter:
+```ruby
+vimeo_user = VimeoRuby.get_user(<vimeo_id>) # Makes http request to the Vimeo API
+#=> #<VimeoRuby::User:0x000000011230df50
+```
+
+With the `VimeoRuby::User` instance that was returned from the successful call we can see what methods are available by running the preceeding and the following code in an irb session with the gem loaded:
 ```ruby
 vimeo_user.methods.sort - Object.methods
 =>  [:additional_info,
@@ -54,20 +62,22 @@ vimeo_user.methods.sort - Object.methods
 
 We can then take the `vimeo_user` that we currently have stored and retrieve a collection of all of the users uploaded videos with the following:
 ```ruby
-uploaded_video_collection = vimeo_user.uploaded_videos
+uploaded_video_collection = vimeo_user.uploaded_videos # Makes http request to the Vimeo API
 # => #<VimeoRuby::User::UploadedVideoCollection:0x00000001130e98b8
 ```
 
 The `VimeoRuby::User::UploadedVideoCollection` object stores an array of `VimeoRuby::Video` objects which are accessible by calling:
 ```ruby
-uploaded_video_collection.videos
+uploaded_video_collection.videos # No http request is made to the Vimeo API
 #=> [#<VimeoRuby::Video:0x0000000112fb3228
 #     ....,
 #     ....,
 #    ]
 ```
 
+### Working with the VimeoRuby::Video class
 
+Work in progress to document this class.
 
 ## Development
 
