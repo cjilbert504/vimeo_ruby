@@ -14,6 +14,8 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
+### Configure Credentials
+
 First, make sure you have a Vimeo account and have access to the following credentials from your Vimeo [My Apps dashboard](https://developer.vimeo.com/apps):
 
 `access_token`, `client_identifier`, and `client_secret`
