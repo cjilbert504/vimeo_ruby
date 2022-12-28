@@ -14,6 +14,20 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
+First, make sure you have a Vimeo account and have access to the following credentials from your Vimeo [My Apps dashboard](https://developer.vimeo.com/apps):
+
+`access_token`, `client_identifier`, and `client_secret`
+
+Once you have access to these, set assign them to the following environment variables accordingly:
+
+```ruby
+VIMEO_ACCESS_TOKEN=<access_token_value>
+VIMEO_CLIENT_IDENTIFIER=<client_identifier_value>
+VIMEO_CLIENT_SECRET=<client_secrete_value
+```
+
+Now you should be ready to continue onward and experiment with this first iteration of the gem interface.
+
 Currently there are two main classes the you should interface to the Vimeo API with which are `VimeoRuby::User` and `VimeoRuby::Video`.
 
 For example, should you want to find a particular Vimeo user by their `vimeo_id`, you can make the following call:
@@ -44,7 +58,7 @@ uploaded_video_collection = vimeo_user.uploaded_videos
 # => #<VimeoRuby::User::UploadedVideoCollection:0x00000001130e98b8
 ```
 
-The `VimeoRuby::User::UploadedVideoCollection` object stores an array of `VimeoRuby::Video` objects that which are accessible by calling:
+The `VimeoRuby::User::UploadedVideoCollection` object stores an array of `VimeoRuby::Video` objects which are accessible by calling:
 ```ruby
 uploaded_video_collection.videos
 #=> [#<VimeoRuby::Video:0x0000000112fb3228
