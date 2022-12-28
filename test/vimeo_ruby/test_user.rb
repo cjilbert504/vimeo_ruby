@@ -62,8 +62,8 @@ class TestUser < Minitest::Test
 
   def test_get_uploaded_videos
     VCR.use_cassette(name) do
-      todd_t = 4111735
-      response = VimeoRuby::User.get_uploaded_videos(todd_t)
+      vimeo_user_id = 4111735
+      response = VimeoRuby::User.get_uploaded_videos(vimeo_user_id)
       assert_kind_of VimeoRuby::User::UploadedVideoCollection, response
     end
   end
