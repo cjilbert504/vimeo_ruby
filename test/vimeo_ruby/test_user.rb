@@ -64,7 +64,7 @@ class TestUser < Minitest::Test
     VCR.use_cassette(name) do
       todd_t = 4111735
       response = VimeoRuby::User.get_uploaded_videos(todd_t)
-      assert_kind_of Hash, response
+      assert_kind_of VimeoRuby::User::UploadedVideoCollection, response
     end
   end
 end
