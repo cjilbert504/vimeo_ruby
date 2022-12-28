@@ -21,16 +21,9 @@ class TestUser < Minitest::Test
     assert_equal 4111735, @user.vimeo_id
   end
 
-  def test_user_has_a_name
-    assert_equal "Fractal Film Co", @user.name
-  end
-
-  def test_user_has_a_profile_link
-    assert_equal "https://vimeo.com/fractalfilmco", @user.profile_url
-  end
-
-  def test_user_has_a_location
-    assert_equal "Truckee, CA", @user.location
+  def test_user_can_indicate_if_they_are_available_for_hire
+    assert_equal false, @user.available_for_hire
+    assert_equal false, @user.available_for_hire?
   end
 
   def test_user_has_a_bio
@@ -38,14 +31,21 @@ class TestUser < Minitest::Test
     assert_equal bio_str, @user.bio
   end
 
-  def test_user_can_indicate_if_they_are_available_for_hire
-    assert_equal false, @user.available_for_hire
-    assert_equal false, @user.available_for_hire?
-  end
-
   def test_user_can_indicate_if_they_can_work_remotely
     assert_equal false, @user.can_work_remotely
     assert_equal false, @user.can_work_remotely?
+  end
+
+  def test_user_has_a_location
+    assert_equal "Truckee, CA", @user.location
+  end
+
+  def test_user_has_a_name
+    assert_equal "Fractal Film Co", @user.name
+  end
+
+  def test_user_has_a_profile_link
+    assert_equal "https://vimeo.com/fractalfilmco", @user.profile_link
   end
 
   def test_user_has_additional_info_accessible
