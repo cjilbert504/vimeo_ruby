@@ -55,6 +55,6 @@ class TestVideo < Minitest::Test
   end
 
   def test_video_has_additional_info_accessible
-    assert_kind_of Hash, @video.additional_info
+    assert_kind_of OpenStruct, @video.additional_info
   end
 end

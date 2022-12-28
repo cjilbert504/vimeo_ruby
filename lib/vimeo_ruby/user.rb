@@ -10,7 +10,7 @@ module VimeoRuby
       @location = attrs.delete("location")
       @name = attrs.delete("name")
       @profile_link = attrs.delete("link")
-      @additional_info = attrs
+      @additional_info = OpenStruct.new(attrs)
     end
 
     def self.get_user(user_id)

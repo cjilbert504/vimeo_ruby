@@ -12,7 +12,7 @@ module VimeoRuby
       @player_embed_url = attrs.delete("player_embed_url")
       @type = attrs.delete("type")
       @user = VimeoRuby::User.new(attrs: attrs.delete("user"))
-      @additional_info = attrs
+      @additional_info = OpenStruct.new(attrs)
     end
 
     def self.get_video(video_id)
