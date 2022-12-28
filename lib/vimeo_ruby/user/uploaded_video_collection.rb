@@ -1,10 +1,12 @@
 module VimeoRuby
   class User < VimeoRuby::Base
     class UploadedVideoCollection
-      attr_reader :list
+      attr_reader :videos
 
       def initialize(videos_array)
-        @list = videos_array
+        @videos = videos_array.map do |video_data|
+          VimeoRuby::Video.new(video_data)
+        end
       end
     end
   end
