@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "vimeo_ruby/base"
-require_relative "vimeo_ruby/user"
-require_relative "vimeo_ruby/version"
+require "vimeo_ruby/base"
+require "vimeo_ruby/user"
+require "vimeo_ruby/version"
 
 module VimeoRuby
   class Error < StandardError; end
