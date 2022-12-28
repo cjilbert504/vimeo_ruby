@@ -1,15 +1,15 @@
 module VimeoRuby
   class User < VimeoRuby::Base
-    attr_reader :vimeo_id, :name, :profile_url, :location, :bio, :available_for_hire, :can_work_remotely, :additional_info
+    attr_reader :vimeo_id, :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link, :additional_info
 
     def initialize(attrs: {})
-      @vimeo_id = extract_id_from_vimeo_user_uri(attrs.delete("uri"))
-      @name = attrs.delete("name")
-      @profile_url = attrs.delete("link")
-      @location = attrs.delete("location")
-      @bio = attrs.delete("bio")
+      @vimeo_id = extract_vimeo_id_from_uri(attrs.delete("uri"))
       @available_for_hire = attrs.delete("available_for_hire")
+      @bio = attrs.delete("bio")
       @can_work_remotely = attrs.delete("can_work_remotely")
+      @location = attrs.delete("location")
+      @name = attrs.delete("name")
+      @profile_link = attrs.delete("link")
       @additional_info = attrs
     end
 
@@ -34,12 +34,6 @@ module VimeoRuby
 
     def can_work_remotely?
       @can_work_remotely
-    end
-
-    private
-
-    def extract_id_from_vimeo_user_uri(user_uri)
-      user_uri.match(/\d+/)[0].to_i
     end
   end
 end
