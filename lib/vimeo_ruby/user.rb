@@ -25,7 +25,7 @@ module VimeoRuby
     def uploaded_videos(query_params: {})
       uploaded_videos_response = self.class.get("#{base_uri}/users/#{vimeo_id}/videos", query_params: query_params)
       uploaded_videos = uploaded_videos_response["data"]
-      VimeoRuby::User::UploadedVideoCollection.new(uploaded_videos)
+      UploadedVideoCollection.new(uploaded_videos)
     end
 
     def available_for_hire?
