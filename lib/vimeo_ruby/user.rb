@@ -1,5 +1,5 @@
 module VimeoRuby
-  class User < VimeoRuby::Base
+  class User < Base
     attr_reader :vimeo_id, :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link, :additional_info
 
     def initialize(attrs: {})

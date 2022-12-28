@@ -1,5 +1,5 @@
 module VimeoRuby
-  class Video < VimeoRuby::Base
+  class Video < Base
     attr_reader :vimeo_id, :description, :duration, :embed_html, :link, :name, :player_embed_url, :type, :user, :additional_info
 
     def initialize(attrs: {})
