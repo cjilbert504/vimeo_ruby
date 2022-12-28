@@ -19,7 +19,7 @@ module VimeoRuby
     end
 
     def self.get_uploaded_videos(user_id, **query_params)
-      get("#{base_uri}/users/#{user_id}/videos", query_params)
+      get("#{base_uri}/users/#{user_id}/videos", query_params: query_params)
     end
 
     def available_for_hire?
