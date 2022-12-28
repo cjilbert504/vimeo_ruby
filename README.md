@@ -1,4 +1,4 @@
-# VimeoRuby
+# VimeoRuby 0.2.0
 
 Welcome to VimeoRuby!
 
@@ -14,7 +14,46 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-WIP
+Currently there are two main classes the you should interface to the Vimeo API with which are `VimeoRuby::User` and `VimeoRuby::Video`.
+
+For example, should you want to find a particular Vimeo user by their `vimeo_id`, you can make the following call:
+```ruby
+vimeo_user = VimeoRuby::User.get_user(<vimeo_id>)
+#=> #<VimeoRuby::User:0x000000011230df50
+```
+
+With this `VimeoRuby::User` instance that was returned from the successful call we can see what methods are available by running the preceeding and the following code in an irb session with the gem loaded:
+```ruby
+vimeo_user.methods.sort - Object.methods
+=>  [:additional_info,
+     :available_for_hire,
+     :available_for_hire?,
+     :base_uri,
+     :bio,
+     :can_work_remotely,
+     :can_work_remotely?,
+     :location,
+     :profile_link,
+     :uploaded_videos,
+     :vimeo_id]
+```
+
+We can then take the `vimeo_user` that we currently have stored and retrieve a collection of all of the users uploaded videos with the following:
+```ruby
+uploaded_video_collection = vimeo_user.uploaded_videos
+# => #<VimeoRuby::User::UploadedVideoCollection:0x00000001130e98b8
+```
+
+The `VimeoRuby::User::UploadedVideoCollection` object stores an array of `VimeoRuby::Video` objects that which are accessible by calling:
+```ruby
+uploaded_video_collection.videos
+#=> [#<VimeoRuby::Video:0x0000000112fb3228
+#     ....,
+#     ....,
+#    ]
+```
+
+
 
 ## Development
 
