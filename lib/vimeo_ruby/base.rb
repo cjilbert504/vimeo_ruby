@@ -33,5 +33,11 @@ module VimeoRuby
         end
       end
     end
+
+    private
+
+    def extract_vimeo_id_from_uri(vimeo_uri)
+      vimeo_uri.match(/\d+/)[0].to_i
+    end
   end
 end
