@@ -13,9 +13,13 @@ module VimeoRuby
       @additional_info = attrs
     end
 
-    def self.get_user(id)
-      user_info = get("#{base_uri}/users/#{id}")
+    def self.get_user(user_id)
+      user_info = get("#{base_uri}/users/#{user_id}")
       new(attrs: user_info)
+    end
+
+    def self.get_uploaded_videos(user_id, **query_params)
+      get("#{base_uri}/users/#{user_id}/videos", query_params)
     end
 
     def available_for_hire?

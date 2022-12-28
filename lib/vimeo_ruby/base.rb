@@ -20,28 +20,17 @@ module VimeoRuby
         ENV["VIMEO_CLIENT_SECRET"]
       end
 
-      def get(uri)
-        https, request = build_https_get_request(uri)
-        request.basic_auth(client_identifier, client_secret)
-        response = https.request(request)
-        JSON.parse(response.body)
-      end
-
-      private
-
-      def build_https_get_request(uri)
+      def get(uri, query_params: {})
         uri = URI.parse(uri)
-        [build_ssl_enabled_http_object(uri.host, uri.port), build_http_get_request_object(uri.path)]
-      end
+        uri.query = URI.encode_www_form(query_params)
 
-      def build_ssl_enabled_http_object(host, port)
-        http = Net::HTTP.new(host, port)
-        http.use_ssl = true
-        http
-      end
+        Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |https|
+          request = Net::HTTP::Get.new(uri)
+          request.basic_auth(client_identifier, client_secret)
 
-      def build_http_get_request_object(path)
-        Net::HTTP::Get.new(path)
+          response = https.request(request)
+          JSON.parse(response.body)
+        end
       end
     end
   end
