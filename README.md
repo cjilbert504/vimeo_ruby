@@ -20,7 +20,7 @@ First, make sure you have a Vimeo account and have access to the following crede
 
 `access_token`, `client_identifier`, and `client_secret`
 
-Once you have access to these, set assign them to the following environment variables accordingly:
+Once you have access to these, assign them to the following environment variables accordingly:
 
 ```ruby
 VIMEO_ACCESS_TOKEN=<access_token_value>
