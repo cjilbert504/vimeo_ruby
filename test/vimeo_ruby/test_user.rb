@@ -13,6 +13,10 @@ class TestUser < Minitest::Test
     VCR.eject_cassette
   end
 
+  def test_is_of_class_vimeo_ruby_user
+    assert_kind_of VimeoRuby::User, @user
+  end
+
   def test_user_has_a_vimeo_id
     assert_equal 202558318, @user.vimeo_id
   end
@@ -53,6 +57,14 @@ class TestUser < Minitest::Test
 
     %w[uri name link location bio available_for_hire can_work_remotely].each do |attr|
       refute_includes @user.additional_info, attr
+    end
+  end
+
+  def test_get_uploaded_videos
+    VCR.use_cassette(name) do
+      todd_t = 4111735
+      response = VimeoRuby::User.get_uploaded_videos(todd_t)
+      assert_kind_of Hash, response
     end
   end
 end
