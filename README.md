@@ -38,7 +38,7 @@ vimeo_user = VimeoRuby::User.get_user(<vimeo_id>)
 #=> #<VimeoRuby::User:0x000000011230df50
 ```
 
-Alternatively, you can call the same `get_user` method on the `VimeoRuby` module itself if you wish for something a bit shorter:
+Alternatively, you can call the `get_user` method on the `VimeoRuby` module itself if you wish for something a bit shorter:
 ```ruby
 vimeo_user = VimeoRuby.get_user(<vimeo_id>) # Makes http request to the Vimeo API
 #=> #<VimeoRuby::User:0x000000011230df50
