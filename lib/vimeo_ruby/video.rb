@@ -1,18 +1,23 @@
 module VimeoRuby
-  class Video
-    attr_reader :uri, :name, :description, :type, :link, :player_embed_url, :duration, :embed_html, :additional_info, :user
+  class Video < VimeoRuby::Base
+    attr_reader :vimeo_id, :description, :duration, :embed_html, :link, :name, :player_embed_url, :type, :user, :additional_info
 
     def initialize(attrs: {})
-      @uri = attrs.delete("uri")
-      @name = attrs.delete("name")
+      @vimeo_id = extract_vimeo_id_from_uri(attrs.delete("uri"))
       @description = attrs.delete("description")
-      @type = attrs.delete("type")
-      @link = attrs.delete("link")
-      @player_embed_url = attrs.delete("player_embed_url")
       @duration = attrs.delete("duration")
       @embed_html = attrs.delete("embed").delete("html")
+      @link = attrs.delete("link")
+      @name = attrs.delete("name")
+      @player_embed_url = attrs.delete("player_embed_url")
+      @type = attrs.delete("type")
       @user = VimeoRuby::User.new(attrs: attrs.delete("user"))
       @additional_info = attrs
+    end
+
+    def self.get_video(video_id)
+      video_info = get("#{base_uri}/videos/#{video_id}")
+      new(attrs: video_info)
     end
   end
 end
