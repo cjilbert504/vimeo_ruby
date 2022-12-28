@@ -34,7 +34,7 @@ Currently there are two main classes the you should use to interface with the Vi
 
 For example, should you want to find a particular Vimeo user by their `vimeo_id`, you can make the following call:
 ```ruby
-vimeo_user = VimeoRuby::User.get_user(<vimeo_id>)
+vimeo_user = VimeoRuby::User.get_user(<vimeo_id>) # Makes http request to the Vimeo API
 #=> #<VimeoRuby::User:0x000000011230df50
 ```
 
