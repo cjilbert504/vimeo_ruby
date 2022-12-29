@@ -1,9 +1,8 @@
 module VimeoRuby
   class Video < Base
-    attr_reader :vimeo_id, :description, :duration, :embed_html, :link, :name, :player_embed_url, :type, :user, :additional_info
+    attr_reader :description, :duration, :embed_html, :link, :name, :player_embed_url, :type, :user
 
     def initialize(attrs: {}, user_class: VimeoRuby::User)
-      @vimeo_id = extract_vimeo_id_from_uri(attrs.delete("uri"))
       @description = attrs.delete("description")
       @duration = attrs.delete("duration")
       @embed_html = attrs.delete("embed").delete("html")
@@ -12,12 +11,15 @@ module VimeoRuby
       @player_embed_url = attrs.delete("player_embed_url")
       @type = attrs.delete("type")
       @user = user_class.new(attrs: attrs.delete("user"))
-      @additional_info = OpenStruct.new(attrs)
+      vimeo_uri_with_id = attrs.delete("uri")
+      super(vimeo_uri_with_id, attrs)
     end
 
-    def self.get_video(video_id)
-      video_info = get("#{base_uri}/videos/#{video_id}")
-      new(attrs: video_info)
+    class << self
+      def get_video(video_id)
+        video_info = get("#{base_uri}/videos/#{video_id}")
+        new(attrs: video_info)
+      end
     end
   end
 end

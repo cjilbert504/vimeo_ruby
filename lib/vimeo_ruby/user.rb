@@ -1,9 +1,8 @@
 module VimeoRuby
   class User < Base
-    attr_reader :vimeo_id, :video_collection, :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link, :additional_info
+    attr_reader :video_collection, :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link
 
     def initialize(attrs: {})
-      @vimeo_id = extract_vimeo_id_from_uri(attrs.delete("uri"))
       @available_for_hire = attrs.delete("available_for_hire")
       @bio = attrs.delete("bio")
       @can_work_remotely = attrs.delete("can_work_remotely")
@@ -11,12 +10,15 @@ module VimeoRuby
       @name = attrs.delete("name")
       @profile_link = attrs.delete("link")
       @video_collection = nil
-      @additional_info = OpenStruct.new(attrs)
+      vimeo_uri_with_id = attrs.delete("uri")
+      super(vimeo_uri_with_id, attrs)
     end
 
-    def self.get_user(user_id)
-      user_info = get("#{base_uri}/users/#{user_id}")
-      new(attrs: user_info)
+    class << self
+      def get_user(user_id)
+        user_info = get("#{base_uri}/users/#{user_id}")
+        new(attrs: user_info)
+      end
     end
 
     def base_uri
