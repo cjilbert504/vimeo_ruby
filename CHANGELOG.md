@@ -1,12 +1,16 @@
 ## [Unreleased]
 
+## [0.4.3] - 2022-12-29
+
+- Inject `VimeoRuby::User` class in `VimeoRuby::Video::new` as default arg.
+
 ## [0.4.2] - 2022-12-29
 
-- Refactor `VimeoRuby::User#uploaded_videos` method
+- Refactor `VimeoRuby::User#uploaded_videos` method.
 
 ## [0.4.1] - 2022-12-29
 
-- Fix erroneous minor version release (yanked 0.4.0)
+- Fix erroneous minor version release (yanked 0.4.0).
 
 ## [0.4.0] - 2022-12-29
 
@@ -22,4 +26,4 @@
 
 ## [0.1.0] - 2022-12-25
 
-- Initial release
+- Initial release.
