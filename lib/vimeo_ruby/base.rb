@@ -33,7 +33,7 @@ module VimeoRuby
 
         Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |https|
           request = Net::HTTP::Get.new(uri)
-          request.basic_auth(client_identifier, client_secret)
+          request["Authorization"] = "bearer #{access_token}"
 
           response = https.request(request)
           JSON.parse(response.body)
