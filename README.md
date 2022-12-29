@@ -1,4 +1,4 @@
-# VimeoRuby 0.2.0
+# VimeoRuby 0.3.0
 
 Welcome to VimeoRuby!
 
