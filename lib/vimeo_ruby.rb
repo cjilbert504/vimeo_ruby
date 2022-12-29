@@ -11,12 +11,12 @@ module VimeoRuby
   class Error < StandardError; end
 
   class << self
-    def get_user(vimeo_id)
-      User.get_user(vimeo_id)
+    def get_user(access_token: nil)
+      User.get_user(access_token: access_token)
     end
 
-    def get_video(vimeo_id)
-      Video.get_video(vimeo_id)
+    def get_video(video_id)
+      Video.get_video(video_id)
     end
   end
 end
