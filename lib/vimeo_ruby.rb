@@ -10,11 +10,13 @@ require "vimeo_ruby/video"
 module VimeoRuby
   class Error < StandardError; end
 
-  def self.get_user(vimeo_id)
-    User.get_user(vimeo_id)
-  end
+  class << self
+    def get_user(vimeo_id)
+      User.get_user(vimeo_id)
+    end
 
-  def self.get_video(vimeo_id)
-    Video.get_video(vimeo_id)
+    def get_video(vimeo_id)
+      Video.get_video(vimeo_id)
+    end
   end
 end
