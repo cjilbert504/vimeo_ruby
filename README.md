@@ -95,7 +95,7 @@ vimeo_video = VimeoRuby::Video.get_video(<vimeo_id>)
 Alternatively, you can call the `get_video` method on the `VimeoRuby` module itself if you wish for something a bit shorter:
 ```ruby
 vimeo_video = VimeoRuby.get_video(<vimeo_id>) # Makes http request to the Vimeo API
-#=> #<VimeoRuby::User:0x000000011230df50
+#=> #<VimeoRuby::Video:0x0000000223gc4339
 ```
 
 ## Development
