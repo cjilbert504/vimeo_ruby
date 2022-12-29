@@ -71,7 +71,7 @@ vimeo_user.methods.sort - Object.methods
 
 We can then take the `vimeo_user` that we currently have stored and retrieve a collection of all of the users uploaded videos with the following:
 ```ruby
-uploaded_video_collection = vimeo_user.uploaded_videos # Makes http request to the Vimeo API
+uploaded_video_collection = vimeo_user.uploaded_videos # Makes http request to the Vimeo API only if the `vimeo_user.video_collection` value is nil or if query_params have been supplied.
 # => #<VimeoRuby::User::UploadedVideoCollection:0x00000001130e98b8
 ```
 
