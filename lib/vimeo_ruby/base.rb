@@ -3,9 +3,10 @@ require "net/http"
 
 module VimeoRuby
   class Base
-    attr_reader :vimeo_id, :additional_info
+    attr_reader :access_token, :vimeo_id, :additional_info
 
-    def initialize(vimeo_id, remaining_attrs)
+    def initialize(access_token: nil, vimeo_id: nil, remaining_attrs: {})
+      @access_token = access_token
       @vimeo_id = extract_vimeo_id_from_uri(vimeo_id)
       @additional_info = OpenStruct.new(remaining_attrs)
     end
@@ -13,10 +14,6 @@ module VimeoRuby
     class << self
       def base_uri
         "https://api.vimeo.com"
-      end
-
-      def access_token
-        ENV["VIMEO_ACCESS_TOKEN"]
       end
 
       def client_identifier
@@ -27,7 +24,7 @@ module VimeoRuby
         ENV["VIMEO_CLIENT_SECRET"]
       end
 
-      def get(uri, query_params: {})
+      def get(uri, query_params: {}, access_token: nil)
         uri = URI.parse(uri)
         uri.query = URI.encode_www_form(query_params)
 
