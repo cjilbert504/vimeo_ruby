@@ -2,6 +2,7 @@
 
 - Extract shared/mutual attributes for `vimeo_id` and `additional_info` from `VimeoRuby::User` and `VimeoRuby::Video` to parent class `VimeoRuby::Base`.
 - Use consistent style when defining class or module level methods.
+- Switch to set Authorization header with `access_token` aka `ENV["VIMEO_ACCESS_TOKEN"]` value and use for authorization when accessing public Vimeo API endpoints vs the previous basic_auth strategy.
 
 ## [0.4.3] - 2022-12-29
 
