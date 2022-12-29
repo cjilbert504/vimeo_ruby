@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.vimeo.com/users/4111735
+    uri: https://api.vimeo.com/me
     body:
       encoding: US-ASCII
       string: ''
@@ -16,18 +16,18 @@ http_interactions:
       Host:
       - api.vimeo.com
       Authorization:
-      - Basic ZDFhMzgwYjUwYzBlMDM3NGFlYzQyYzYwNTU2YzI3ODZlZTEzZWVmZjpkanBCaFV1RUNOYldKNzJOVXZXTVAxQlAyM2dyeGxNWEhIcWhFcUd5ekJ1VTdlQmJXaXg0ald1MURhcS9DZnJMSkI3UlY4TVdzRFc3NXVBUnVnRFNnL29QWnR0dWs1MGlQK1ZXZWtMb3NDQUtzTW5DNVhRR3BPM1NNZXJtbW1qOQ==
+      - bearer a6e8eeb34e2d35eb28b37caf4713a058
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 28 Dec 2022 04:48:57 GMT
+      - Thu, 29 Dec 2022 21:35:11 GMT
       Content-Type:
       - application/vnd.vimeo.user+json
       Content-Length:
-      - '4324'
+      - '3681'
       Connection:
       - keep-alive
       Strict-Transport-Security:
@@ -37,13 +37,13 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '48'
       X-Ratelimit-Reset:
-      - '2022-12-28T04:49:57+00:00'
+      - '2022-12-29T21:36:11+00:00'
       Cache-Control:
       - no-store, no-cache, max-age=0
       Request-Hash:
-      - c463d93c
+      - 95e672b4
       X-Bapp-Server:
-      - api-666d9c7c7d-27zsc
+      - api-6986f49849-p2wf2
       X-Backend-Server:
       - api-k8s
       Via:
@@ -53,40 +53,28 @@ http_interactions:
       Age:
       - '0'
       X-Served-By:
-      - cache-iad-kcgs7200061-IAD, cache-fty21371-FTY
+      - cache-iad-kjyo7100110-IAD, cache-fty21348-FTY
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1672202937.265934,VS0,VE458
+      - S1672349712.500097,VS0,VE183
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=sfgHYULeeZsu3EbeR9GVBLtLsYSPJgqd3JaDV9Z8kQw-1672202937-0-ASVgJJuyRtq5GSnhM15TPoNiWagIxJ5wFIaK+AVt19oP4wWZQTT3caV9RbMsWjPmdWPdpCbVX5QLy0UM4czz9Ng=;
-        path=/; expires=Wed, 28-Dec-22 05:18:57 GMT; domain=.vimeo.com; HttpOnly;
+      - __cf_bm=BpUkzEZHtuLnf9d6UckdR6wPqcU0HvmX5e8bT3mAvKc-1672349711-0-AV55ZGtPuDRjDdFEs6iVGduap3yDFP+38oaJlSXBu2U7sClJbj5biCbhukyOiOMhtC/9L7MTThO3OCubFwFRB6Y=;
+        path=/; expires=Thu, 29-Dec-22 22:05:11 GMT; domain=.vimeo.com; HttpOnly;
         Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 7807aaa5d93bb181-ATL
+      - 7815aa0098ddf379-ATL
     body:
       encoding: UTF-8
-      string: '{"uri":"/users/4111735","name":"Fractal Film Co","link":"https://vimeo.com/fractalfilmco","capabilities":{"hasLiveSubscription":false,"hasEnterpriseLihp":false,"hasSvvTimecodedComments":false,"hasSimplifiedEnterpriseAccount":false},"location":"Truckee,
-        CA","gender":"o","bio":"FRACTAL Film Co is a full service film production
-        company located in mountains of Truckee, CA that specializes in crafting powerful
-        commercial, documentary and branded content.\n\nUtilizing cutting edge industry
-        cinema tools like the RED Dragon 6K camera, Movi gimbal stabilizers, drones
-        and cinema lenses, Fractal strives to tell stories that are not only emotionallycaptivating
-        but also visually stunning and uniquely stylized.\n\nOur core team consists
-        of Directors, Producers, Cinematographers and Editors with deep roots in the
-        industry. We understand the complex process of crafting cinematic stories
-        from pre-production through final delivery, and approach every project with
-        fresh eyes ready to break the rules. Everyone at Fractal is driven by a perfectionism
-        to create enduring images and tell inspiring stories.","short_bio":"FRACTAL
-        Film Co is a full service film production company located in mountains of
-        Truckee, CA that specializes in crafting powerful commercial, documentary
-        and","created_time":"2010-06-23T03:39:27+00:00","pictures":{"uri":"/users/4111735/pictures/17377071","active":true,"type":"custom","base_link":"https://i.vimeocdn.com/portrait/17377071","sizes":[{"width":30,"height":30,"link":"https://i.vimeocdn.com/portrait/17377071_30x30"},{"width":72,"height":72,"link":"https://i.vimeocdn.com/portrait/17377071_72x72"},{"width":75,"height":75,"link":"https://i.vimeocdn.com/portrait/17377071_75x75"},{"width":100,"height":100,"link":"https://i.vimeocdn.com/portrait/17377071_100x100"},{"width":144,"height":144,"link":"https://i.vimeocdn.com/portrait/17377071_144x144"},{"width":216,"height":216,"link":"https://i.vimeocdn.com/portrait/17377071_216x216"},{"width":288,"height":288,"link":"https://i.vimeocdn.com/portrait/17377071_288x288"},{"width":300,"height":300,"link":"https://i.vimeocdn.com/portrait/17377071_300x300"},{"width":360,"height":360,"link":"https://i.vimeocdn.com/portrait/17377071_360x360"}],"resource_key":"18ab377b86219eb062ffd13c26fd7d7b16bed1eb","default_picture":false},"websites":[{"uri":"/users/4111735/links/4831450","name":"w","link":"http://www.fractalfilmco.com","type":"link","description":null},{"uri":"/users/4111735/links/4831451","name":"Blog","link":"http://blog.westonwalker.com/","type":"link","description":null}],"metadata":{"connections":{"albums":{"uri":"/users/4111735/albums","options":["GET"],"total":3},"appearances":{"uri":"/users/4111735/appearances","options":["GET"],"total":19},"channels":{"uri":"/users/4111735/channels","options":["GET"],"total":2},"feed":{"uri":"/users/4111735/feed","options":["GET"]},"followers":{"uri":"/users/4111735/followers","options":["GET"],"total":166},"following":{"uri":"/users/4111735/following","options":["GET"],"total":73},"groups":{"uri":"/users/4111735/groups","options":["GET"],"total":0},"likes":{"uri":"/users/4111735/likes","options":["GET"],"total":17},"membership":{"uri":"/users/4111735/membership/","options":["PATCH"]},"moderated_channels":{"uri":"/users/4111735/channels?filter=moderated","options":["GET"],"total":0},"portfolios":{"uri":"/users/4111735/portfolios","options":["GET"],"total":0},"videos":{"uri":"/users/4111735/videos","options":["GET"],"total":28},"shared":{"uri":"/users/4111735/shared/videos","options":["GET"],"total":0},"pictures":{"uri":"/users/4111735/pictures","options":["GET","POST"],"total":1},"folders_root":{"uri":"/users/4111735/folders/root","options":["GET"]},"teams":{"uri":"/users/4111735/teams","options":["GET"],"total":1}}},"location_details":{"formatted_address":"Truckee,
-        CA","latitude":null,"longitude":null,"city":null,"state":null,"neighborhood":null,"sub_locality":null,"state_iso_code":null,"country":null,"country_iso_code":null},"skills":[{"uri":"/marketplace/skills/59","name":"Filmmaker"},{"uri":"/marketplace/skills/17","name":"Director"},{"uri":"/marketplace/skills/57","name":"Editor"},{"uri":"/marketplace/skills/34","name":"Producer"}],"available_for_hire":false,"can_work_remotely":false,"resource_key":"9a3cda5b1994ba038bda67c7465c304724e7078d","account":"plus"}'
-  recorded_at: Wed, 28 Dec 2022 04:48:57 GMT
+      string: '{"uri":"/users/191447207","name":"Collin Jilbert","link":"https://vimeo.com/user191447207","capabilities":{"hasLiveSubscription":false,"hasEnterpriseLihp":false,"hasSvvTimecodedComments":false,"hasSimplifiedEnterpriseAccount":false},"location":"Covington,
+        LA, USA","gender":"","bio":"Writing stories for computers to read.","short_bio":null,"created_time":"2022-12-25T23:56:39+00:00","pictures":{"uri":"/users/191447207/pictures/81348807","active":true,"type":"custom","base_link":"https://i.vimeocdn.com/portrait/81348807","sizes":[{"width":30,"height":30,"link":"https://i.vimeocdn.com/portrait/81348807_30x30"},{"width":72,"height":72,"link":"https://i.vimeocdn.com/portrait/81348807_72x72"},{"width":75,"height":75,"link":"https://i.vimeocdn.com/portrait/81348807_75x75"},{"width":100,"height":100,"link":"https://i.vimeocdn.com/portrait/81348807_100x100"},{"width":144,"height":144,"link":"https://i.vimeocdn.com/portrait/81348807_144x144"},{"width":216,"height":216,"link":"https://i.vimeocdn.com/portrait/81348807_216x216"},{"width":288,"height":288,"link":"https://i.vimeocdn.com/portrait/81348807_288x288"},{"width":300,"height":300,"link":"https://i.vimeocdn.com/portrait/81348807_300x300"},{"width":360,"height":360,"link":"https://i.vimeocdn.com/portrait/81348807_360x360"}],"resource_key":"cd46e2c02aab1b995329f515d67b2aba30b254f6","default_picture":false},"websites":[],"metadata":{"connections":{"albums":{"uri":"/users/191447207/albums","options":["GET"],"total":0},"appearances":{"uri":"/users/191447207/appearances","options":["GET"],"total":0},"categories":{"uri":"/users/191447207/categories","options":["GET"],"total":0},"channels":{"uri":"/users/191447207/channels","options":["GET"],"total":0},"feed":{"uri":"/users/191447207/feed","options":["GET"]},"followers":{"uri":"/users/191447207/followers","options":["GET"],"total":0},"following":{"uri":"/users/191447207/following","options":["GET"],"total":0},"groups":{"uri":"/users/191447207/groups","options":["GET"],"total":0},"likes":{"uri":"/users/191447207/likes","options":["GET"],"total":0},"membership":{"uri":"/users/191447207/membership/","options":["PATCH"]},"moderated_channels":{"uri":"/users/191447207/channels?filter=moderated","options":["GET"],"total":0},"portfolios":{"uri":"/users/191447207/portfolios","options":["GET"],"total":0},"videos":{"uri":"/users/191447207/videos","options":["GET"],"total":0},"watchlater":{"uri":"/users/191447207/watchlater","options":["GET"],"total":0},"shared":{"uri":"/users/191447207/shared/videos","options":["GET"],"total":0},"pictures":{"uri":"/users/191447207/pictures","options":["GET","POST"],"total":1},"watched_videos":{"uri":"/me/watched/videos","options":["GET"],"total":0},"folders_root":{"uri":"/users/191447207/folders/root","options":["GET"]},"folders":{"uri":"/users/191447207/folders","options":["GET","POST"],"total":0},"teams":{"uri":"/users/191447207/teams","options":["GET"],"total":1},"block":{"uri":"/me/block","options":["GET"],"total":0}}},"location_details":{"formatted_address":"Covington,
+        LA, USA","latitude":30.4754696,"longitude":-90.100914,"city":"Covington","state":"Louisiana","neighborhood":null,"sub_locality":null,"state_iso_code":"LA","country":"United
+        States","country_iso_code":"US"},"skills":[],"available_for_hire":false,"can_work_remotely":false,"preferences":{"videos":{"rating":["unrated"],"privacy":{"view":"anybody","comments":"anybody","embed":"public","download":true,"add":true,"allow_share_link":true}},"webinar_registrant_lower_watermark_banner_dismissed":[]},"content_filter":["language","drugs","violence","nudity","safe","unrated"],"resource_key":"4c03419bc7911731a2369a4777948cb00b4f8de2","account":"free"}'
+  recorded_at: Thu, 29 Dec 2022 21:35:11 GMT
 recorded_with: VCR 6.1.0

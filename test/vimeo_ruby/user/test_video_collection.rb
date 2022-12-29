@@ -6,7 +6,7 @@ class TestVideoCollection < Minitest::Test
   def setup
     VCR.use_cassette("test_get_uploaded_videos") do
       VCR.use_cassette("user_found_successfully") do
-        @user = VimeoRuby::User.get_user(4111735)
+        @user = VimeoRuby::User.get_user(access_token: ENV["VIMEO_ACCESS_TOKEN"])
       end
       @video_collection = @user.uploaded_videos
     end

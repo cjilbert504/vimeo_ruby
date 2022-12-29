@@ -9,11 +9,11 @@ class TestVimeoRuby < Minitest::Test
 
   def test_get_user
     VCR.use_cassette("user_found_successfully") do
-      @vimeo_user1 = VimeoRuby.get_user(4111735)
+      @vimeo_user1 = VimeoRuby.get_user(access_token: ENV["VIMEO_ACCESS_TOKEN"])
     end
 
     VCR.use_cassette("user_found_successfully") do
-      @vimeo_user2 = VimeoRuby::User.get_user(4111735)
+      @vimeo_user2 = VimeoRuby::User.get_user(access_token: ENV["VIMEO_ACCESS_TOKEN"])
     end
 
     assert_equal @vimeo_user1.class, @vimeo_user2.class
