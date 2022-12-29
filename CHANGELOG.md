@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+- Extract shared/mutual attributes for `vimeo_id` and `additional_info` from `VimeoRuby::User` and `VimeoRuby::Video` to parent class `VimeoRuby::Base`.
+- Use consistent style when defining class or module level methods.
+
 ## [0.4.3] - 2022-12-29
 
 - Inject `VimeoRuby::User` class in `VimeoRuby::Video::new` as default arg.
