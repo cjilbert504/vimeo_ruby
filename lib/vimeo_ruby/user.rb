@@ -1,6 +1,6 @@
 module VimeoRuby
   class User < Base
-    attr_reader :vimeo_id, :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link, :additional_info
+    attr_reader :vimeo_id, :video_collection, :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link, :additional_info
 
     def initialize(attrs: {})
       @vimeo_id = extract_vimeo_id_from_uri(attrs.delete("uri"))
@@ -10,6 +10,7 @@ module VimeoRuby
       @location = attrs.delete("location")
       @name = attrs.delete("name")
       @profile_link = attrs.delete("link")
+      @video_collection = nil
       @additional_info = OpenStruct.new(attrs)
     end
 
@@ -23,9 +24,11 @@ module VimeoRuby
     end
 
     def uploaded_videos(query_params: {})
-      uploaded_videos_response = self.class.get("#{base_uri}/users/#{vimeo_id}/videos", query_params: query_params)
-      uploaded_videos = uploaded_videos_response["data"]
-      UploadedVideoCollection.new(uploaded_videos)
+      if @video_collection.nil? || !query_params.empty?
+        uploaded_videos_response = self.class.get("#{base_uri}/users/#{vimeo_id}/videos", query_params: query_params)
+        uploaded_videos = uploaded_videos_response["data"]
+        @video_collection = UploadedVideoCollection.new(uploaded_videos)
+      end
     end
 
     def available_for_hire?

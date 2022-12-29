@@ -8,6 +8,10 @@ module VimeoRuby
           Video.new(attrs: video_data)
         end
       end
+
+      def empty?
+        videos.empty?
+      end
     end
   end
 end

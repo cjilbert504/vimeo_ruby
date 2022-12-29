@@ -11,6 +11,7 @@ class TestUser < Minitest::Test
 
   def teardown
     VCR.eject_cassette
+    WebMock.reset!
   end
 
   def test_is_of_class_vimeo_ruby_user
@@ -64,8 +65,15 @@ class TestUser < Minitest::Test
 
   def test_get_uploaded_videos
     VCR.use_cassette(name) do
-      response = @user.uploaded_videos
-      assert_kind_of VimeoRuby::User::UploadedVideoCollection, response
+      assert_kind_of VimeoRuby::User::UploadedVideoCollection, @user.uploaded_videos
+    end
+  end
+
+  def test_doesnt_make_request_for_uploaded_videos_again_if_query_params_are_empty
+    VCR.use_cassette(name) do
+      @user.uploaded_videos
+      @user.uploaded_videos
+      assert_requested :get, "https://api.vimeo.com/users/4111735/videos", times: 1
     end
   end
 end
