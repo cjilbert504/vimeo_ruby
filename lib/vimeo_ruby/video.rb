@@ -2,7 +2,7 @@ module VimeoRuby
   class Video < Base
     attr_reader :vimeo_id, :description, :duration, :embed_html, :link, :name, :player_embed_url, :type, :user, :additional_info
 
-    def initialize(attrs: {})
+    def initialize(attrs: {}, user_class: VimeoRuby::User)
       @vimeo_id = extract_vimeo_id_from_uri(attrs.delete("uri"))
       @description = attrs.delete("description")
       @duration = attrs.delete("duration")
@@ -11,7 +11,7 @@ module VimeoRuby
       @name = attrs.delete("name")
       @player_embed_url = attrs.delete("player_embed_url")
       @type = attrs.delete("type")
-      @user = VimeoRuby::User.new(attrs: attrs.delete("user"))
+      @user = user_class.new(attrs: attrs.delete("user"))
       @additional_info = OpenStruct.new(attrs)
     end
 
