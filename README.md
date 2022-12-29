@@ -23,14 +23,19 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ### Configure Credentials
 
-First, make sure you have a Vimeo account and have access to the following credentials from your Vimeo [My Apps dashboard](https://developer.vimeo.com/apps):
+#### This section is a work in progress. At the moment the most important/useful of the following credentials to have is the `access_token` available from the link below.
 
+First, make sure you have a Vimeo account and have access to the following credentials from your Vimeo [My Apps dashboard](https://developer.vimeo.com/apps):
 `access_token`
+`client_identifier`
+`client_secret`
 
 Once you have a valid `access_token`, assign it to the following environment variable:
 
 ```ruby
 VIMEO_ACCESS_TOKEN=<access_token_value>
+VIMEO_CLIENT_IDENTIFIER=<client_identifier_value>
+VIMEO_CLIENT_SECRET=<client_secret_value>
 ```
 
 Now you should be ready to continue onward and experiment with this first iteration of the gem interface.
@@ -102,9 +107,11 @@ vimeo_video = VimeoRuby.get_video(<vimeo_id>) # Makes http request to the Vimeo 
 
 ## Development
 
-At the moment, you will need to create a Vimeo account to obtain your own `access_token` if you wish to work on building out an interface to any of the Vimeo API endpoints.
+At the moment, you will need to create a Vimeo account to obtain your own `access_token`, `client_identifier`, and `client_secret` if you wish to work on building out an interface to any of the Vimeo API endpoints.
 Will be working on a solution to remedy this step in the future but for now, after obtaining these, set the values to the following env vars on your local machine accordingly:
 - `VIMEO_ACCESS_TOKEN`
+- `VIMEO_CLIENT_IDENTIFIER`
+- `VIMEO_CLIENT_SECRET`
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
