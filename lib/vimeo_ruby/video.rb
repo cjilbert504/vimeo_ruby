@@ -12,7 +12,7 @@ module VimeoRuby
       @type = attrs.delete("type")
       @user = user_class.new(attrs: attrs.delete("user"))
       vimeo_uri_with_id = attrs.delete("uri")
-      super(vimeo_uri_with_id, attrs)
+      super(vimeo_id: vimeo_uri_with_id, remaining_attrs: attrs)
     end
 
     class << self
