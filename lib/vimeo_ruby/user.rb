@@ -28,6 +28,8 @@ module VimeoRuby
         uploaded_videos_response = self.class.get("#{base_uri}/users/#{vimeo_id}/videos", query_params: query_params)
         uploaded_videos = uploaded_videos_response["data"]
         @video_collection = UploadedVideoCollection.new(uploaded_videos)
+      else
+        @video_collection
       end
     end
 
