@@ -2,6 +2,13 @@
 
 Welcome to VimeoRuby!
 
+## Development Philosophy/Mindset
+
+The mindset of this project at this stage of development is to:
+1. Be simple - Write boring code, resist pulling in additional gems as much as possible, and don't worry about edge cases or handling errors all that much right now.
+2. Try to be as object-oriented as possible. I'm not an OO expert and you don't have to be either but let's try to improve our OO skills.
+3. Have fun. Who wants another job? Not me so let's keep it light and make something cool!
+
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
@@ -79,7 +86,17 @@ uploaded_video_collection.videos # No http request is made to the Vimeo API
 
 ### Working with the VimeoRuby::Video class
 
-Work in progress to document this class.
+To retrieve a particular video from Vimeo you can use the following call:
+```ruby
+vimeo_video = VimeoRuby::Video.get_video(<vimeo_id>)
+#=> #<VimeoRuby::Video:0x000000022341eg61
+```
+
+Alternatively, you can call the `get_video` method on the `VimeoRuby` module itself if you wish for something a bit shorter:
+```ruby
+vimeo_video = VimeoRuby.get_video(<vimeo_id>) # Makes http request to the Vimeo API
+#=> #<VimeoRuby::User:0x000000011230df50
+```
 
 ## Development
 
