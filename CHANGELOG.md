@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+## [0.4.2] - 2022-12-29
+
+- Refactor `VimeoRuby::User#uploaded_videos` method
+
+## [0.4.1] - 2022-12-29
+
+- Fix erroneous minor version release (yanked 0.4.0)
+
 ## [0.4.0] - 2022-12-29
 
 - Save unnecessary call to get a users uploaded video collection if we already have it and no additional query params are passed in to `VimeoRuby::User#uploaded_videos`.

@@ -25,9 +25,7 @@ module VimeoRuby
 
     def uploaded_videos(query_params: {})
       if @video_collection.nil? || !query_params.empty?
-        uploaded_videos_response = self.class.get("#{base_uri}/users/#{vimeo_id}/videos", query_params: query_params)
-        uploaded_videos = uploaded_videos_response["data"]
-        @video_collection = UploadedVideoCollection.new(uploaded_videos)
+        @video_collection = retrieve_video_collection(query_params)
       else
         @video_collection
       end
@@ -39,6 +37,14 @@ module VimeoRuby
 
     def can_work_remotely?
       @can_work_remotely
+    end
+
+    private
+
+    def retrieve_video_collection(query_params)
+      uploaded_videos_response = self.class.get("#{base_uri}/users/#{vimeo_id}/videos", query_params: query_params)
+      uploaded_videos = uploaded_videos_response["data"]
+      UploadedVideoCollection.new(uploaded_videos)
     end
   end
 end
