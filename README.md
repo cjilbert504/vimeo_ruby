@@ -1,4 +1,4 @@
-# VimeoRuby 0.4.3
+# VimeoRuby 0.5.0
 
 Welcome to VimeoRuby!
 
@@ -25,14 +25,12 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 First, make sure you have a Vimeo account and have access to the following credentials from your Vimeo [My Apps dashboard](https://developer.vimeo.com/apps):
 
-`access_token`, `client_identifier`, and `client_secret`
+`access_token`
 
-Once you have access to these, assign them to the following environment variables accordingly:
+Once you have a valid `access_token`, assign it to the following environment variable:
 
 ```ruby
 VIMEO_ACCESS_TOKEN=<access_token_value>
-VIMEO_CLIENT_IDENTIFIER=<client_identifier_value>
-VIMEO_CLIENT_SECRET=<client_secrete_value
 ```
 
 Now you should be ready to continue onward and experiment with this first iteration of the gem interface.
@@ -41,23 +39,26 @@ Currently there are two main classes the you should use to interface with the Vi
 
 ### Working with the VimeoRuby::User class
 
-For example, should you want to find a particular Vimeo user by their `vimeo_id`, you can make the following call:
+For example, to get the currently authenticated user:
 ```ruby
-vimeo_user = VimeoRuby::User.get_user(<vimeo_id>) # Makes http request to the Vimeo API
+vimeo_user = VimeoRuby::User.get_user(access_token: <access_token>) # Makes http request to the Vimeo API
 #=> #<VimeoRuby::User:0x000000011230df50
 ```
+Upon successfully retrieving the authenticated user, the users `access_token` will be stored on the `VimeoRuby::User` instance (`vimeo_user` in the above example code) and
+accessible for future requests via an `attr_reader` like so: `vimeo_user.access_token`
 
 Alternatively, you can call the `get_user` method on the `VimeoRuby` module itself if you wish for something a bit shorter:
 ```ruby
-vimeo_user = VimeoRuby.get_user(<vimeo_id>) # Makes http request to the Vimeo API
+vimeo_user = VimeoRuby.get_user(access_token: <access_token>) # Makes http request to the Vimeo API
 #=> #<VimeoRuby::User:0x000000011230df50
 ```
 
 With the `VimeoRuby::User` instance that was returned from the successful call we can see what methods are available by running the preceeding and the following code in an irb session with the gem loaded:
 ```ruby
 vimeo_user.methods.sort - Object.methods
-=>  [:additional_info,
-     :available_for_hire,
+=>  [:access_token,                                       
+     :additional_info,                                    
+     :available_for_hire,                                 
      :available_for_hire?,
      :base_uri,
      :bio,
@@ -66,6 +67,7 @@ vimeo_user.methods.sort - Object.methods
      :location,
      :profile_link,
      :uploaded_videos,
+     :video_collection,
      :vimeo_id]
 ```
 
@@ -100,11 +102,9 @@ vimeo_video = VimeoRuby.get_video(<vimeo_id>) # Makes http request to the Vimeo 
 
 ## Development
 
-At the moment, you will need to create a Vimeo account to obtain your own `access_token`, `client_identifier`, and `client_secret` if you wish to work on building out an interface to any of the Vimeo API endpoints.
+At the moment, you will need to create a Vimeo account to obtain your own `access_token` if you wish to work on building out an interface to any of the Vimeo API endpoints.
 Will be working on a solution to remedy this step in the future but for now, after obtaining these, set the values to the following env vars on your local machine accordingly:
 - `VIMEO_ACCESS_TOKEN`
-- `VIMEO_CLIENT_IDENTIFIER`
-- `VIMEO_CLIENT_SECRET`
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
