@@ -3,6 +3,13 @@ require "net/http"
 
 module VimeoRuby
   class Base
+    attr_reader :vimeo_id, :additional_info
+
+    def initialize(vimeo_id, remaining_attrs)
+      @vimeo_id = extract_vimeo_id_from_uri(vimeo_id)
+      @additional_info = OpenStruct.new(remaining_attrs)
+    end
+
     class << self
       def base_uri
         "https://api.vimeo.com"
