@@ -1,6 +1,6 @@
 module VimeoRuby
   class User < Base
-    attr_reader :video_collection, :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link
+    attr_reader :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link, :video_collection
 
     def initialize(access_token: nil, attrs: {})
       @available_for_hire = attrs.delete("available_for_hire")
@@ -10,6 +10,7 @@ module VimeoRuby
       @name = attrs.delete("name")
       @profile_link = attrs.delete("link")
       @video_collection = nil
+
       vimeo_uri_with_id = attrs.delete("uri")
       super(access_token: access_token, vimeo_id: vimeo_uri_with_id, remaining_attrs: attrs)
     end

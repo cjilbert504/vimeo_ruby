@@ -11,6 +11,7 @@ module VimeoRuby
       @player_embed_url = attrs.delete("player_embed_url")
       @type = attrs.delete("type")
       @user = user_class.new(attrs: attrs.delete("user")) if attrs["user"]
+
       vimeo_uri_with_id = attrs.delete("uri") || attrs.delete("clip")&.delete("uri")
       super(vimeo_id: vimeo_uri_with_id, remaining_attrs: attrs)
     end
