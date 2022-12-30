@@ -5,13 +5,13 @@ module VimeoRuby
     def initialize(attrs: {}, user_class: VimeoRuby::User)
       @description = attrs.delete("description")
       @duration = attrs.delete("duration")
-      @embed_html = attrs.delete("embed").delete("html")
+      @embed_html = attrs.delete("embed")&.delete("html")
       @link = attrs.delete("link")
       @name = attrs.delete("name")
       @player_embed_url = attrs.delete("player_embed_url")
       @type = attrs.delete("type")
-      @user = user_class.new(attrs: attrs.delete("user"))
-      vimeo_uri_with_id = attrs.delete("uri")
+      @user = user_class.new(attrs: attrs.delete("user")) if attrs["user"]
+      vimeo_uri_with_id = attrs.delete("uri") || attrs.delete("clip")&.delete("uri")
       super(vimeo_id: vimeo_uri_with_id, remaining_attrs: attrs)
     end
 
