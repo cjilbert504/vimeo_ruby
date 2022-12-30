@@ -1,6 +1,7 @@
 module VimeoRuby
   class User < Base
-    attr_reader :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link, :video_collection
+    attr_accessor :video_collection
+    attr_reader :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link
 
     def initialize(access_token: nil, attrs: {})
       @available_for_hire = attrs.delete("available_for_hire")
@@ -23,7 +24,7 @@ module VimeoRuby
     end
 
     def available_for_hire?
-      @available_for_hire
+      available_for_hire
     end
 
     def base_uri
@@ -31,7 +32,7 @@ module VimeoRuby
     end
 
     def can_work_remotely?
-      @can_work_remotely
+      can_work_remotely
     end
 
     def video_feed(query_params: {})
@@ -41,10 +42,10 @@ module VimeoRuby
     end
 
     def uploaded_videos(query_params: {})
-      if @video_collection.nil? || !query_params.empty?
+      if video_collection.nil? || !query_params.empty?
         @video_collection = retrieve_video_collection(query_params)
       else
-        @video_collection
+        video_collection
       end
     end
 
