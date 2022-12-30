@@ -65,7 +65,7 @@ class TestUser < Minitest::Test
 
   def test_get_uploaded_videos
     VCR.use_cassette(name) do
-      assert_kind_of VimeoRuby::User::UploadedVideoCollection, @user.uploaded_videos
+      assert_kind_of VimeoRuby::User::VideoCollection, @user.uploaded_videos
     end
   end
 
@@ -74,6 +74,12 @@ class TestUser < Minitest::Test
       @user.uploaded_videos
       @user.uploaded_videos
       assert_requested :get, "https://api.vimeo.com/me/videos", times: 1
+    end
+  end
+
+  def test_get_video_feed
+    VCR.use_cassette(name) do
+      assert_kind_of VimeoRuby::User::VideoCollection, @user.video_feed
     end
   end
 end
