@@ -36,14 +36,12 @@ module VimeoRuby
     end
 
     def video_feed(query_params: {})
-      video_feed_response = self.class.get("#{base_uri}/me/feed", query_params: query_params, access_token: access_token)
-      video_feed = video_feed_response["data"]
-      VideoCollection.new(video_feed)
+      retrieve_video_collection(:feed, query_params)
     end
 
     def uploaded_videos(query_params: {})
       if video_collection.nil? || !query_params.empty?
-        @video_collection = retrieve_video_collection(query_params)
+        @video_collection = retrieve_video_collection(:videos, query_params)
       else
         video_collection
       end
@@ -51,8 +49,8 @@ module VimeoRuby
 
     private
 
-    def retrieve_video_collection(query_params)
-      uploaded_videos_response = self.class.get("#{base_uri}/me/videos", query_params: query_params, access_token: access_token)
+    def retrieve_video_collection(collection_source, query_params)
+      uploaded_videos_response = self.class.get("#{base_uri}/me/#{collection_source}", query_params: query_params, access_token: access_token)
 
       uploaded_videos = uploaded_videos_response["data"]
       VideoCollection.new(uploaded_videos)
