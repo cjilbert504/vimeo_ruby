@@ -3,7 +3,7 @@ module VimeoRuby
     class VideoCollection
       attr_reader :videos
 
-      def initialize(videos_array)
+      def initialize(videos_array = [])
         @videos = videos_array.map do |video_data|
           Video.new(attrs: video_data)
         end
