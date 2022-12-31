@@ -1,9 +1,10 @@
 module VimeoRuby
   class User < Base
-    attr_accessor :video_collection
+    attr_accessor :uploaded_videos, :video_feed
 
     def initialize(access_token: nil, attrs: {}, video_collection: VideoCollection.new)
-      @video_collection = video_collection
+      @uploaded_videos = video_collection.dup
+      @video_feed = video_collection.dup
       attrs.each do |key, val|
         instance_variable_set("@#{key}", val)
         define_attribute_reader(key)
@@ -30,15 +31,19 @@ module VimeoRuby
       can_work_remotely
     end
 
-    def video_feed(query_params: {})
-      retrieve_video_collection(:feed, query_params)
+    def get_video_feed(query_params: {})
+      if video_feed.empty? || !query_params.empty?
+        @video_feed = retrieve_video_collection(:feed, query_params)
+      else
+        video_feed
+      end
     end
 
-    def uploaded_videos(query_params: {})
-      if video_collection.empty? || !query_params.empty?
-        @video_collection = retrieve_video_collection(:videos, query_params)
+    def get_uploaded_videos(query_params: {})
+      if uploaded_videos.empty? || !query_params.empty?
+        @uploaded_videos = retrieve_video_collection(:videos, query_params)
       else
-        video_collection
+        uploaded_videos
       end
     end
 
