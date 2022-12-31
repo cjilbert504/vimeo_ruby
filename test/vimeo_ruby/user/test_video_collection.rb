@@ -8,7 +8,7 @@ class TestVideoCollection < Minitest::Test
       VCR.use_cassette("user_found_successfully") do
         @user = VimeoRuby::User.get_user(access_token: ENV["VIMEO_ACCESS_TOKEN"])
       end
-      @video_collection = @user.uploaded_videos
+      @video_collection = @user.get_uploaded_videos
     end
   end
 
