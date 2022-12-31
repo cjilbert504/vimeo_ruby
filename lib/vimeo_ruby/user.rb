@@ -1,19 +1,18 @@
 module VimeoRuby
   class User < Base
     attr_accessor :video_collection
-    attr_reader :available_for_hire, :bio, :can_work_remotely, :location, :name, :profile_link
 
-    def initialize(access_token: nil, attrs: {})
-      @available_for_hire = attrs.delete("available_for_hire")
-      @bio = attrs.delete("bio")
-      @can_work_remotely = attrs.delete("can_work_remotely")
-      @location = attrs.delete("location")
-      @name = attrs.delete("name")
-      @profile_link = attrs.delete("link")
-      @video_collection = nil
-
-      vimeo_uri_with_id = attrs.delete("uri")
-      super(access_token: access_token, vimeo_id: vimeo_uri_with_id, remaining_attrs: attrs)
+    def initialize(access_token: nil, attrs: {}, video_collection: VideoCollection.new)
+      @video_collection = video_collection
+      attrs.each do |key, val|
+        instance_variable_set("@#{key}", val)
+        unless self.class.method_defined?(key)
+          self.class.define_method key do
+            instance_variable_get("@#{key}")
+          end
+        end
+      end
+      super(access_token: access_token, vimeo_id: uri)
     end
 
     class << self
@@ -40,7 +39,7 @@ module VimeoRuby
     end
 
     def uploaded_videos(query_params: {})
-      if video_collection.nil? || !query_params.empty?
+      if video_collection.empty? || !query_params.empty?
         @video_collection = retrieve_video_collection(:videos, query_params)
       else
         video_collection
@@ -51,7 +50,6 @@ module VimeoRuby
 
     def retrieve_video_collection(collection_source, query_params)
       uploaded_videos_response = self.class.get("#{base_uri}/me/#{collection_source}", query_params: query_params, access_token: access_token)
-
       uploaded_videos = uploaded_videos_response["data"]
       VideoCollection.new(uploaded_videos)
     end

@@ -1,19 +1,20 @@
 module VimeoRuby
   class Video < Base
-    attr_reader :description, :duration, :embed_html, :link, :name, :player_embed_url, :type, :user
 
     def initialize(attrs: {}, user_class: VimeoRuby::User)
-      @description = attrs.delete("description")
-      @duration = attrs.delete("duration")
-      @embed_html = attrs.delete("embed")&.delete("html")
-      @link = attrs.delete("link")
-      @name = attrs.delete("name")
-      @player_embed_url = attrs.delete("player_embed_url")
-      @type = attrs.delete("type")
-      @user = user_class.new(attrs: attrs.delete("user")) if attrs["user"]
+      attrs.each do |key, val|
+        val = key.eql?("user") ? user_class.new(attrs: val) : val
+        val = key.eql?("embed") ? val["html"] : val
+        instance_variable_set("@#{key}", val)
+        unless self.class.method_defined?(key)
+          self.class.define_method key do
+            instance_variable_get("@#{key}")
+          end
+        end
+      end
 
-      vimeo_uri_with_id = attrs.delete("uri") || attrs.delete("clip")&.delete("uri")
-      super(vimeo_id: vimeo_uri_with_id, remaining_attrs: attrs)
+      vimeo_uri_with_id = uri || clip["uri"]
+      super(vimeo_id: vimeo_uri_with_id)
     end
 
     class << self

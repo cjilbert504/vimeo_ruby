@@ -3,12 +3,11 @@ require "net/http"
 
 module VimeoRuby
   class Base
-    attr_reader :access_token, :vimeo_id, :additional_info
+    attr_reader :access_token, :vimeo_id
 
-    def initialize(access_token: nil, vimeo_id: nil, remaining_attrs: {})
+    def initialize(access_token: nil, vimeo_id: nil)
       @access_token = access_token
       @vimeo_id = extract_vimeo_id_from_uri(vimeo_id)
-      @additional_info = OpenStruct.new(remaining_attrs)
     end
 
     class << self
