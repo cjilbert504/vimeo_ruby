@@ -1,6 +1,5 @@
 module VimeoRuby
   class Video < Base
-
     def initialize(attrs: {}, user_class: VimeoRuby::User)
       attrs.each do |key, val|
         val = key.eql?("user") ? user_class.new(attrs: val) : val
