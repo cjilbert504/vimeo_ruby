@@ -51,21 +51,29 @@ class TestUser < Minitest::Test
 
   def test_get_uploaded_videos
     VCR.use_cassette(name) do
-      assert_kind_of VimeoRuby::User::VideoCollection, @user.uploaded_videos
+      assert_kind_of VimeoRuby::User::VideoCollection, @user.get_uploaded_videos
     end
   end
 
   def test_doesnt_make_request_for_uploaded_videos_again_if_query_params_are_empty
     VCR.use_cassette(name) do
-      @user.uploaded_videos
-      @user.uploaded_videos
+      @user.get_uploaded_videos
+      @user.get_uploaded_videos
       assert_requested :get, "https://api.vimeo.com/me/videos", times: 1
     end
   end
 
   def test_get_video_feed
     VCR.use_cassette(name) do
-      assert_kind_of VimeoRuby::User::VideoCollection, @user.video_feed
+      assert_kind_of VimeoRuby::User::VideoCollection, @user.get_video_feed
+    end
+  end
+
+  def test_doesnt_make_request_for_video_feed_again_if_query_params_are_empty
+    VCR.use_cassette(name) do
+      @user.get_video_feed
+      @user.get_video_feed
+      assert_requested :get, "https://api.vimeo.com/me/feed", times: 1
     end
   end
 end
