@@ -5,11 +5,7 @@ module VimeoRuby
         val = key.eql?("user") ? user_class.new(attrs: val) : val
         val = key.eql?("embed") ? val["html"] : val
         instance_variable_set("@#{key}", val)
-        unless self.class.method_defined?(key)
-          self.class.define_method key do
-            instance_variable_get("@#{key}")
-          end
-        end
+        define_attribute_readers(key)
       end
 
       vimeo_uri_with_id = uri || clip["uri"]

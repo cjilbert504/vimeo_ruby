@@ -39,6 +39,14 @@ module VimeoRuby
 
     private
 
+    def define_attribute_readers(attr_name)
+      unless self.class.method_defined?(attr_name)
+        self.class.define_method attr_name do
+          instance_variable_get("@#{attr_name}")
+        end
+      end
+    end
+
     def extract_vimeo_id_from_uri(vimeo_uri)
       vimeo_uri.match(/\d+/)[0].to_i
     end

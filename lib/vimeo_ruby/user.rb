@@ -6,11 +6,7 @@ module VimeoRuby
       @video_collection = video_collection
       attrs.each do |key, val|
         instance_variable_set("@#{key}", val)
-        unless self.class.method_defined?(key)
-          self.class.define_method key do
-            instance_variable_get("@#{key}")
-          end
-        end
+        define_attribute_readers(key)
       end
       super(access_token: access_token, vimeo_id: uri)
     end
