@@ -1,5 +1,30 @@
 # frozen_string_literal: true
 
+# [:@uploaded_videos,
+#  :@video_feed,
+#  :@uri,
+#  :@name,
+#  :@link,
+#  :@capabilities,
+#  :@location,
+#  :@gender,
+#  :@bio,
+#  :@short_bio,
+#  :@created_time,
+#  :@pictures,
+#  :@websites,
+#  :@metadata,
+#  :@location_details,
+#  :@skills,
+#  :@available_for_hire,
+#  :@can_work_remotely,
+#  :@preferences,
+#  :@content_filter,
+#  :@resource_key,
+#  :@account,
+#  :@access_token,
+#  :@vimeo_id]
+
 require "test_helper"
 
 class TestUser < Minitest::Test
