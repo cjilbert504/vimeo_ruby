@@ -44,11 +44,8 @@ module VimeoRuby
     private
 
     def define_attribute_reader(attr_name)
-      unless self.class.method_defined?(attr_name)
-        self.class.define_method attr_name do
-          instance_variable_get("@#{attr_name}")
-        end
-      end
+      klass = self.class
+      klass.define_method(attr_name) { instance_variable_get("@#{attr_name}") } unless klass.method_defined?(attr_name)
     end
 
     def extract_vimeo_id_from_uri(vimeo_uri)
