@@ -23,10 +23,6 @@ module VimeoRuby
       available_for_hire
     end
 
-    def base_uri
-      self.class.base_uri
-    end
-
     def can_work_remotely?
       can_work_remotely
     end

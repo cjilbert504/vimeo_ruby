@@ -37,6 +37,10 @@ module VimeoRuby
       end
     end
 
+    def base_uri
+      self.class.base_uri
+    end
+
     private
 
     def define_attribute_reader(attr_name)
