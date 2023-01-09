@@ -5,10 +5,12 @@ module VimeoRuby
     def initialize(access_token: nil, attrs: {}, video_collection: VideoCollection.new)
       @uploaded_videos = video_collection.dup
       @video_feed = video_collection.dup
+
       attrs.each do |key, val|
         instance_variable_set("@#{key}", val)
         define_attribute_reader(key)
       end
+
       super(access_token: access_token, vimeo_id: uri)
     end
 

@@ -4,6 +4,7 @@ module VimeoRuby
       attrs.each do |key, val|
         val = key.eql?("user") ? user_class.new(attrs: val) : val
         val = key.eql?("embed") ? val["html"] : val
+
         instance_variable_set("@#{key}", val)
         define_attribute_reader(key)
       end
