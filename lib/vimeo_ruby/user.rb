@@ -29,8 +29,8 @@ module VimeoRuby
       can_work_remotely
     end
 
-    def edit(options = {})
-      updated_user_details = patch("#{base_uri}/me", access_token: access_token, body_params: options)
+    def edit(body_params = {})
+      updated_user_details = patch("#{base_uri}/me", access_token: access_token, body_params: body_params)
       reanimate_from(updated_user_details)
     end
 
