@@ -1,30 +1,5 @@
 # frozen_string_literal: true
 
-# [:@uploaded_videos,
-#  :@video_feed,
-#  :@uri,
-#  :@name,
-#  :@link,
-#  :@capabilities,
-#  :@location,
-#  :@gender,
-#  :@bio,
-#  :@short_bio,
-#  :@created_time,
-#  :@pictures,
-#  :@websites,
-#  :@metadata,
-#  :@location_details,
-#  :@skills,
-#  :@available_for_hire,
-#  :@can_work_remotely,
-#  :@preferences,
-#  :@content_filter,
-#  :@resource_key,
-#  :@account,
-#  :@access_token,
-#  :@vimeo_id]
-
 require "test_helper"
 
 class TestUser < Minitest::Test
@@ -83,6 +58,18 @@ class TestUser < Minitest::Test
   def test_get_video_feed
     VCR.use_cassette(name) do
       assert_kind_of VimeoRuby::User::VideoCollection, @user.get_video_feed
+    end
+  end
+
+  def test_current_attributes_for_user
+    current_attrs = [:uploaded_videos, :video_feed, :uri, :name, :link, :capabilities,
+      :location, :gender, :bio, :short_bio, :created_time, :pictures,
+      :websites, :metadata, :location_details, :skills, :available_for_hire,
+      :can_work_remotely, :preferences, :content_filter, :resource_key,
+      :account, :access_token, :vimeo_id]
+
+    current_attrs.each do |attr|
+      assert @user.respond_to? attr
     end
   end
 end
