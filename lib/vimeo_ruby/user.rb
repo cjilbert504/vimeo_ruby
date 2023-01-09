@@ -29,6 +29,14 @@ module VimeoRuby
       can_work_remotely
     end
 
+    def edit(options = {})
+      updated_user_details = patch("#{base_uri}/me", access_token: access_token, body_params: options)
+      updated_user = self.class.new(attrs: updated_user_details)
+      updated_user.video_feed = video_feed
+      updated_user.uploaded_videos = uploaded_videos
+      updated_user
+    end
+
     def get_video_feed(query_params: {})
       @video_feed = retrieve_video_collection(:feed, query_params)
     end

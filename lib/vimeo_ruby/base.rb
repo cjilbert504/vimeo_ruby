@@ -1,8 +1,11 @@
 require "json"
 require "net/http"
+require "vimeo_ruby/http_helper"
 
 module VimeoRuby
   class Base
+    include HttpHelper
+
     attr_reader :access_token, :vimeo_id
 
     def initialize(access_token: nil, vimeo_id: nil)
@@ -23,22 +26,24 @@ module VimeoRuby
         ENV["VIMEO_CLIENT_SECRET"]
       end
 
-      def get(uri, query_params: {}, access_token: nil)
+      def get(uri, access_token: nil, query_params: {})
         uri = URI.parse(uri)
         uri.query = URI.encode_www_form(query_params)
+        request = Net::HTTP::Get.new(uri)
 
-        Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |https|
-          request = Net::HTTP::Get.new(uri)
-          request["Authorization"] = "bearer #{access_token}"
-
-          response = https.request(request)
-          JSON.parse(response.body)
-        end
+        HttpHelper.make_request(uri: uri, request_obj: request, access_token: access_token, params: query_params)
       end
     end
 
     def base_uri
       self.class.base_uri
+    end
+
+    def patch(uri, access_token: nil, body_params: {})
+      uri = URI.parse(uri)
+      request = Net::HTTP::Patch.new(uri)
+
+      make_request(uri: uri, request_obj: request, access_token: access_token, params: body_params)
     end
 
     private
