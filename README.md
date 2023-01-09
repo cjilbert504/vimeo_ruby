@@ -64,8 +64,9 @@ Once you have successfully retrieved an authenticated User by using one of the m
 ```ruby
 updated_vimeo_user = vimeo_user.edit(bio: "Here is my updated bio.")
 ```
-If you have successfully retrieved any of the users video collections prior to this `edit` call above, the updated user will have its equivalent video collection attribute updated.
-This avoids having to make an unnecessary additional HTTP requests. 
+If you have successfully retrieved any of the users video collections prior to this `edit` call above, the updated user instance
+returned from the `edit` method call will have its equivalent video collection attributes updated from the results of calling
+the video collection methods on the pre-updated `vimeo_user` object. This avoids having to make additional and unnecessary HTTP requests.
 
 #### Querying User Attributes
 With the `VimeoRuby::User` instance that was returned from the successful call we can see what methods are available by running the preceeding and the following code in an irb session with the gem loaded:
