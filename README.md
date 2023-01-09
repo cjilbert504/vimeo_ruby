@@ -43,6 +43,7 @@ Now you should be ready to continue onward and experiment with this first iterat
 Currently there are two main classes the you should use to interface with the Vimeo API through which are `VimeoRuby::User` and `VimeoRuby::Video`.
 
 ### Working with the VimeoRuby::User class
+#### Getting a User
 
 For example, to get the currently authenticated user:
 ```ruby
@@ -58,31 +59,31 @@ vimeo_user = VimeoRuby.get_user(access_token: <access_token>) # Makes http reque
 #=> #<VimeoRuby::User:0x000000011230df50
 ```
 
+#### Editing a User (WIP)
+Once you have successfully retrieved an authenticated User by using one of the methods above, you can then edit the users details like so:
+```ruby
+updated_vimeo_user = vimeo_user.edit(bio: "Here is my updated bio.")
+```
+If you have successfully retrieved any of the users video collections prior to this `edit` call above, the updated user will have its equivalent video collection attribute updated.
+This avoids having to make an unnecessary additional HTTP requests. 
+
+#### Querying User Attributes
 With the `VimeoRuby::User` instance that was returned from the successful call we can see what methods are available by running the preceeding and the following code in an irb session with the gem loaded:
 ```ruby
 vimeo_user.methods.sort - Object.methods
-=>  [:access_token,                                       
-     :additional_info,                                    
-     :available_for_hire,                                 
-     :available_for_hire?,
-     :base_uri,
-     :bio,
-     :can_work_remotely,
-     :can_work_remotely?,
-     :location,
-     :profile_link,
-     :uploaded_videos,
-     :video_collection,
-     :vimeo_id]
+=>  [:access_token, :additional_info, :available_for_hire, :available_for_hire?,
+     :base_uri, :bio, :can_work_remotely, :can_work_remotely?, :location,
+     :profile_link, :uploaded_videos, :video_collection, :vimeo_id]
 ```
 
+#### Retrieving Video Collections of the User
 We can then take the `vimeo_user` that we currently have stored and retrieve a collection of all of the users uploaded videos with the following:
 ```ruby
 uploaded_video_collection = vimeo_user.get_uploaded_videos # Makes http request to the Vimeo API only if the `vimeo_user.video_collection` value is nil or if query_params have been supplied.
 # => #<VimeoRuby::User::UploadedVideoCollection:0x00000001130e98b8
 ```
 
-The `VimeoRuby::User::UploadedVideoCollection` object stores an array of `VimeoRuby::Video` objects which are accessible by calling:
+The `VimeoRuby::User::UploadedVideoCollection` object that was returned from the previous method call stores an array of `VimeoRuby::Video` objects which are accessible by calling:
 ```ruby
 uploaded_video_collection.videos # No http request is made to the Vimeo API
 #=> [#<VimeoRuby::Video:0x0000000112fb3228
