@@ -52,8 +52,8 @@ module VimeoRuby
     end
 
     def retrieve_video_collection(collection_source, query_params)
-      uploaded_videos_response = self.class.get("#{base_uri}/me/#{collection_source}", query_params: query_params, access_token: access_token)
-      VideoCollection.new(uploaded_videos_response["data"])
+      video_collection_response = self.class.get("#{base_uri}/me/#{collection_source}", query_params: query_params, access_token: access_token)
+      VideoCollection.new(video_collection_response["data"])
     end
   end
 end
