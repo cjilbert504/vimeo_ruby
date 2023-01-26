@@ -7,7 +7,7 @@ Welcome to VimeoRuby!
 The mindset of this project at this stage of development is to:
 1. Be simple - Write boring code, resist pulling in additional gems as much as possible, and don't worry about edge cases or handling errors all that much right now.
 2. Try to be as object-oriented as possible. I'm not an OO expert and you don't have to be either but let's try to improve our OO skills.
-3. Have fun. Who wants another job? Not me so let's keep it light and make something cool!
+3. Have fun. Who wants another job? Not me so let's keep it light and easy!
 
 ## Installation
 
@@ -23,19 +23,15 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ### Configure Credentials
 
-#### This section is a work in progress. At the moment the most important/useful of the following credentials to have is the `access_token` available from the link below.
+#### This section is a work in progress and is setup currently to show how to start using the Vimeo API through the gem with your personal access token or an access token of a user of your application.
 
 First, make sure you have a Vimeo account and have access to the following credentials from your Vimeo [My Apps dashboard](https://developer.vimeo.com/apps):
 `access_token`
-`client_identifier`
-`client_secret`
 
 Once you have a valid `access_token`, assign it to the following environment variable:
 
 ```ruby
 VIMEO_ACCESS_TOKEN=<access_token_value>
-VIMEO_CLIENT_IDENTIFIER=<client_identifier_value>
-VIMEO_CLIENT_SECRET=<client_secret_value>
 ```
 
 Now you should be ready to continue onward and experiment with this first iteration of the gem interface.
@@ -45,7 +41,7 @@ Currently there are two main classes the you should use to interface with the Vi
 ### Working with the VimeoRuby::User class
 #### Getting a User
 
-For example, to get the currently authenticated user:
+For example, to get the currently authenticated user (the user that owns the access token being used), you can do the following:
 ```ruby
 vimeo_user = VimeoRuby::User.get_user(access_token: <access_token>) # Makes http request to the Vimeo API
 #=> #<VimeoRuby::User:0x000000011230df50
@@ -64,7 +60,7 @@ Once you have successfully retrieved an authenticated User by using one of the m
 ```ruby
 updated_vimeo_user = vimeo_user.edit(bio: "Here is my updated bio.")
 ```
-If you have successfully retrieved any of the users video collections prior to this `edit` call above, the updated user instance
+If you have successfully retrieved any of the users video collections prior to the `edit` call above, the updated user instance
 returned from the `edit` method call will have its equivalent video collection attributes updated from the results of calling
 the video collection methods on the pre-updated `vimeo_user` object. This avoids having to make additional and unnecessary HTTP requests.
 
@@ -72,9 +68,6 @@ the video collection methods on the pre-updated `vimeo_user` object. This avoids
 With the `VimeoRuby::User` instance that was returned from the successful call we can see what methods are available by running the preceeding and the following code in an irb session with the gem loaded:
 ```ruby
 vimeo_user.methods.sort - Object.methods
-=>  [:access_token, :additional_info, :available_for_hire, :available_for_hire?,
-     :base_uri, :bio, :can_work_remotely, :can_work_remotely?, :location,
-     :profile_link, :uploaded_videos, :video_collection, :vimeo_id]
 ```
 
 #### Retrieving Video Collections of the User
@@ -109,11 +102,9 @@ vimeo_video = VimeoRuby.get_video(<vimeo_id>) # Makes http request to the Vimeo 
 
 ## Development
 
-At the moment, you will need to create a Vimeo account to obtain your own `access_token`, `client_identifier`, and `client_secret` if you wish to work on building out an interface to any of the Vimeo API endpoints.
+At the moment, you will need to create a Vimeo account to obtain your own `access_token` if you wish to work on helping to build out an interface to any of the Vimeo API endpoints.
 Will be working on a solution to remedy this step in the future but for now, after obtaining these, set the values to the following env vars on your local machine accordingly:
 - `VIMEO_ACCESS_TOKEN`
-- `VIMEO_CLIENT_IDENTIFIER`
-- `VIMEO_CLIENT_SECRET`
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
