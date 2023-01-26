@@ -6,24 +6,17 @@ module VimeoRuby
   class Base
     include HttpHelper
 
-    attr_reader :access_token, :vimeo_id
+    attr_reader :access_token, :base_uri, :vimeo_id
 
     def initialize(access_token: nil, vimeo_id: nil)
       @access_token = access_token
+      @base_uri = self.class.base_uri
       @vimeo_id = extract_vimeo_id_from_uri(vimeo_id)
     end
 
     class << self
       def base_uri
         "https://api.vimeo.com"
-      end
-
-      def client_identifier
-        ENV["VIMEO_CLIENT_IDENTIFIER"]
-      end
-
-      def client_secret
-        ENV["VIMEO_CLIENT_SECRET"]
       end
 
       def get(uri, access_token: nil, query_params: {})
@@ -33,10 +26,6 @@ module VimeoRuby
 
         HttpHelper.make_request(uri: uri, request_obj: request, access_token: access_token, params: query_params)
       end
-    end
-
-    def base_uri
-      self.class.base_uri
     end
 
     def patch(uri, access_token: nil, body_params: {})
